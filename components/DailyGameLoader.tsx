@@ -35,7 +35,7 @@ export function DailyGameLoader({
       <div className="game-shell">
         <Header streak={stats.currentStreak} />
         <div className="grid min-h-[40vh] place-items-center">
-          <p className="mono text-sm uppercase tracking-widest text-[#423920]/50">
+          <p className="mono text-sm uppercase tracking-widest text-[#c7c6e0]/50">
             Loading today&rsquo;s puzzle…
           </p>
         </div>
@@ -72,7 +72,7 @@ export function DailyGameLoader({
         onPracticeAgain={() => router.push("/practice")}
       />
       <footer className="py-6 text-center">
-        <p className="mono text-xs uppercase tracking-[0.18em] text-[#423920]/55">
+        <p className="mono text-xs uppercase tracking-[0.18em] text-[#c7c6e0]/55">
           New player every day &bull; Built for SpannerSports
         </p>
       </footer>

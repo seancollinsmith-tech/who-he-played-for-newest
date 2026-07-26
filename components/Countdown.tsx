@@ -26,10 +26,10 @@ export function Countdown() {
 
   return (
     <div className="text-center">
-      <p className="mono text-[10px] uppercase tracking-[0.24em] text-[#423920]/60">
+      <p className="mono text-[10px] uppercase tracking-[0.24em] text-[#c7c6e0]/60">
         Next game in
       </p>
-      <p className="display mono text-2xl font-black text-[#112f54]" aria-live="off">
+      <p className="display mono text-2xl font-black text-[#f5f5ff]" aria-live="off">
         {label ?? "--:--:--"}
       </p>
     </div>

@@ -18,18 +18,18 @@ export default function HowToPlayPage() {
       <div className="game-shell">
         <Header streak={streak} />
 
-        <section className="rounded-[2rem] border-2 border-[#112f54]/15 bg-[#f7efdc]/75 p-5 shadow-card backdrop-blur sm:p-8">
-          <h1 className="display text-4xl font-black uppercase text-[#112f54]">How to Play</h1>
+        <section className="rounded-[2rem] border-2 border-white/10 bg-[#14152c]/80 p-5 shadow-card backdrop-blur sm:p-8">
+          <h1 className="display text-4xl font-black uppercase text-[#f5f5ff]">How to Play</h1>
 
-          <div className="mt-4 space-y-4 text-sm leading-6 text-[#423920]/85 sm:text-base">
+          <div className="mt-4 space-y-4 text-sm leading-6 text-[#c7c6e0]/85 sm:text-base">
             <p>
               You&rsquo;ll see one NBA player. Select every current NBA franchise
               the player appeared for in at least one official regular-season
               or playoff game.
             </p>
             <ul className="list-disc space-y-2 pl-5">
-              <li>Correct picks turn <strong className="text-[#1f7a45]">green</strong> and lock in.</li>
-              <li>Incorrect picks turn <strong className="text-[#bd2c2c]">red</strong>, lock, and cost a mistake.</li>
+              <li>Correct picks turn <strong className="text-[#22e584]">green</strong> and lock in.</li>
+              <li>Incorrect picks turn <strong className="text-[#ff3358]">red</strong>, lock, and cost a mistake.</li>
               <li>{MAX_MISTAKES} mistakes and the game ends.</li>
               <li>Find every correct franchise to win.</li>
             </ul>
@@ -40,7 +40,7 @@ export default function HowToPlayPage() {
               stops. A franchise only counts once, even across multiple
               stints.
             </p>
-            <div className="rounded-2xl bg-[#112f54] p-4 text-white">
+            <div className="rounded-2xl bg-[#123e91] p-4 text-white">
               <p className="mono text-xs uppercase tracking-widest opacity-70">Scoring</p>
               <p className="mt-1">Start at 1,000 points.</p>
               <p>&minus;{WRONG_GUESS_PENALTY} for every incorrect guess.</p>

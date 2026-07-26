@@ -128,7 +128,7 @@ export function GameBoard({
   });
 
   return (
-    <section className="rounded-[2rem] border-2 border-[#112f54]/15 bg-[#f7efdc]/75 p-5 shadow-card backdrop-blur sm:p-8">
+    <section className="rounded-[2rem] border-2 border-white/10 bg-[#14152c]/80 p-5 shadow-card backdrop-blur sm:p-8">
       <PlayerCard
         puzzle={puzzle}
         gameNumber={gameNumber}
@@ -137,7 +137,7 @@ export function GameBoard({
       />
 
       <div className="mt-7 grid gap-3 sm:grid-cols-3">
-        <div className="rounded-2xl bg-[#112f54] p-4 text-white">
+        <div className="rounded-2xl bg-[#123e91] p-4 text-white">
           <p className="mono text-[10px] uppercase tracking-[0.24em] opacity-65">Progress</p>
           <p className="display mt-1 text-3xl font-black">
             {correct.length}/{puzzle.answerTeamIds.length}
@@ -171,7 +171,7 @@ export function GameBoard({
         <button
           type="button"
           onClick={() => setShowHowToPlay(true)}
-          className="flex items-center gap-2 rounded-2xl border-2 border-[#112f54]/25 px-4 py-2 text-sm font-black uppercase tracking-wide text-[#112f54] transition hover:bg-[#112f54]/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ee5a1f]"
+          className="flex items-center gap-2 rounded-2xl border-2 border-white/15 px-4 py-2 text-sm font-black uppercase tracking-wide text-[#f5f5ff] transition hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ffc93c]"
         >
           <BookOpen size={16} aria-hidden="true" />
           How to Play
@@ -179,7 +179,7 @@ export function GameBoard({
         <button
           type="button"
           onClick={() => setShowStats(true)}
-          className="flex items-center gap-2 rounded-2xl border-2 border-[#112f54]/25 px-4 py-2 text-sm font-black uppercase tracking-wide text-[#112f54] transition hover:bg-[#112f54]/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ee5a1f]"
+          className="flex items-center gap-2 rounded-2xl border-2 border-white/15 px-4 py-2 text-sm font-black uppercase tracking-wide text-[#f5f5ff] transition hover:bg-white/5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ffc93c]"
         >
           <BarChart3 size={16} aria-hidden="true" />
           Statistics
@@ -188,7 +188,7 @@ export function GameBoard({
           <button
             type="button"
             onClick={() => setShowResults(true)}
-            className="rounded-2xl bg-[#ee5a1f] px-4 py-2 text-sm font-black uppercase tracking-wide text-white"
+            className="rounded-2xl bg-[#f0197c] px-4 py-2 text-sm font-black uppercase tracking-wide text-white"
           >
             View Results
           </button>

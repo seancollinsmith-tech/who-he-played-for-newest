@@ -21,14 +21,14 @@ export default function EditPlayerPage() {
       <div className="game-shell">
         <Header streak={0} />
         <AdminGuard>
-          <section className="rounded-[2rem] border-2 border-[#112f54]/15 bg-[#f7efdc]/75 p-5 shadow-card backdrop-blur sm:p-8">
-            <h1 className="display text-3xl font-black uppercase text-[#112f54]">Edit Player</h1>
+          <section className="rounded-[2rem] border-2 border-white/10 bg-[#14152c]/80 p-5 shadow-card backdrop-blur sm:p-8">
+            <h1 className="display text-3xl font-black uppercase text-[#f5f5ff]">Edit Player</h1>
             <div className="mt-6">
               {player === undefined && (
-                <p className="text-sm text-[#423920]/60">Loading…</p>
+                <p className="text-sm text-[#c7c6e0]/60">Loading…</p>
               )}
               {player === null && (
-                <p className="text-sm text-[#bd2c2c]">Player not found.</p>
+                <p className="text-sm text-[#ff3358]">Player not found.</p>
               )}
               {player && <PlayerForm initialPlayer={player} />}
             </div>

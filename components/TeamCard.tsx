@@ -16,9 +16,9 @@ export function TeamCard({
   onClick: () => void;
 }) {
   const stateClasses = {
-    idle: "border-[#112f54]/20 bg-[#fff8e8] text-[#112f54] hover:-translate-y-1 hover:border-[#ee5a1f]",
-    correct: "border-[#155f38] bg-[#1f7a45] text-white shadow-lg shadow-green-900/15",
-    wrong: "border-[#8e2020] bg-[#bd2c2c] text-white"
+    idle: "border-white/15 bg-[#1c1d3a] text-[#f5f5ff] hover:-translate-y-1 hover:border-[#f0197c]",
+    correct: "border-[#0e8f52] bg-[#12a85a] text-white shadow-lg shadow-green-900/15",
+    wrong: "border-[#8a1338] bg-[#d81b4a] text-white"
   }[state];
 
   const label = `${team.city} ${team.name}${
@@ -35,7 +35,7 @@ export function TeamCard({
       transition={{ duration: 0.35 }}
       disabled={disabled}
       onClick={onClick}
-      className={`motion-reduce:transform-none relative min-h-20 rounded-2xl border-2 p-3 text-left transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ffbb33] ${stateClasses} ${
+      className={`motion-reduce:transform-none relative min-h-20 rounded-2xl border-2 p-3 text-left transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ffc93c] ${stateClasses} ${
         disabled ? "cursor-default" : "cursor-pointer"
       }`}
     >

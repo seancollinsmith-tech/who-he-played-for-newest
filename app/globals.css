@@ -3,13 +3,25 @@
 @tailwind utilities;
 
 :root {
-  --cream: #f4ebd5;
-  --navy: #112f54;
-  --orange: #ee5a1f;
-  --gold: #ffbb33;
-  --green: #1f7a45;
-  --red: #bd2c2c;
-  --ink: #423920;
+  /* Backgrounds */
+  --bg: #0a0a14;
+  --surface: #14152c;
+  --surface-alt: #1c1d3a;
+
+  /* Neon accents (from the SpannerSports mark) */
+  --blue: #29b6f6;
+  --blue-solid: #123e91;
+  --pink: #f0197c;
+  --gold: #ffc93c;
+  --purple: #7c3aed;
+  --green: #22e584;
+  --green-solid: #12a85a;
+  --red: #ff3358;
+  --red-solid: #d81b4a;
+
+  /* Text */
+  --text: #f5f5ff;
+  --ink: #c7c6e0;
 }
 
 * {
@@ -17,16 +29,18 @@
 }
 
 html {
-  background: var(--cream);
+  background: var(--bg);
 }
 
 body {
   min-height: 100vh;
   color: var(--ink);
   background:
-    radial-gradient(circle at 1px 1px, rgba(78, 63, 31, 0.14) 1px, transparent 1px),
-    linear-gradient(180deg, #f7efdc 0%, #f1e5cb 100%);
-  background-size: 8px 8px, auto;
+    radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    radial-gradient(ellipse 900px 500px at 15% -10%, rgba(41, 182, 246, 0.16), transparent 60%),
+    radial-gradient(ellipse 900px 500px at 90% 0%, rgba(240, 25, 124, 0.14), transparent 60%),
+    linear-gradient(180deg, #0a0a14 0%, #08080f 100%);
+  background-size: 8px 8px, auto, auto, auto;
 }
 
 button,
@@ -35,8 +49,8 @@ input {
 }
 
 ::selection {
-  background: var(--gold);
-  color: var(--navy);
+  background: var(--pink);
+  color: var(--text);
 }
 
 .game-shell {
@@ -64,11 +78,20 @@ input {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  opacity: 0.08;
+  opacity: 0.06;
   background-image:
     radial-gradient(circle at 20% 20%, white 0 1px, transparent 1px),
     radial-gradient(circle at 70% 60%, white 0 1px, transparent 1px);
   background-size: 7px 7px, 9px 9px;
+}
+
+/* Subtle neon glow used on primary/branded surfaces */
+.glow-blue {
+  box-shadow: 0 0 0 1px rgba(41, 182, 246, 0.4), 0 8px 30px rgba(41, 182, 246, 0.15);
+}
+
+.glow-pink {
+  box-shadow: 0 0 0 1px rgba(240, 25, 124, 0.4), 0 8px 30px rgba(240, 25, 124, 0.18);
 }
 
 /* Accessibility: respect reduced-motion preference across the app */
@@ -89,7 +112,7 @@ button:focus-visible,
 input:focus-visible,
 select:focus-visible,
 textarea:focus-visible {
-  outline: 2px solid var(--orange);
+  outline: 2px solid var(--gold);
   outline-offset: 2px;
 }
 

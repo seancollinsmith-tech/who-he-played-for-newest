@@ -56,9 +56,9 @@ export function CareerStopEditor({
       {stops.map((stop, index) => {
         const team = teamsInDisplayOrder.find((t) => t.id === stop.teamId);
         return (
-          <div key={stop.id} className="rounded-2xl border-2 border-[#112f54]/15 bg-white/60 p-4">
+          <div key={stop.id} className="rounded-2xl border-2 border-white/10 bg-[#1c1d3a]/60 p-4">
             <div className="flex items-center justify-between">
-              <span className="mono text-xs font-black uppercase text-[#423920]/50">
+              <span className="mono text-xs font-black uppercase text-[#c7c6e0]/50">
                 Stop {index + 1}
               </span>
               <div className="flex gap-1">
@@ -67,7 +67,7 @@ export function CareerStopEditor({
                   onClick={() => move(stop.id, -1)}
                   disabled={index === 0}
                   aria-label="Move stop earlier"
-                  className="rounded-lg border border-[#112f54]/20 p-1.5 disabled:opacity-30"
+                  className="rounded-lg border border-white/15 p-1.5 disabled:opacity-30"
                 >
                   <ArrowUp size={14} />
                 </button>
@@ -76,7 +76,7 @@ export function CareerStopEditor({
                   onClick={() => move(stop.id, 1)}
                   disabled={index === stops.length - 1}
                   aria-label="Move stop later"
-                  className="rounded-lg border border-[#112f54]/20 p-1.5 disabled:opacity-30"
+                  className="rounded-lg border border-white/15 p-1.5 disabled:opacity-30"
                 >
                   <ArrowDown size={14} />
                 </button>
@@ -84,7 +84,7 @@ export function CareerStopEditor({
                   type="button"
                   onClick={() => remove(stop.id)}
                   aria-label="Remove stop"
-                  className="rounded-lg border border-[#bd2c2c]/30 p-1.5 text-[#bd2c2c]"
+                  className="rounded-lg border border-[#ff3358]/30 p-1.5 text-[#ff3358]"
                 >
                   <Trash2 size={14} />
                 </button>
@@ -92,7 +92,7 @@ export function CareerStopEditor({
             </div>
 
             <div className="mt-3 grid gap-3 sm:grid-cols-2">
-              <label className="text-xs font-bold text-[#112f54]">
+              <label className="text-xs font-bold text-[#f5f5ff]">
                 Team
                 <select
                   value={stop.teamId}
@@ -104,7 +104,7 @@ export function CareerStopEditor({
                       teamNameUsed: stop.teamNameUsed || `${t.city} ${t.name}`
                     });
                   }}
-                  className="mt-1 w-full rounded-xl border-2 border-[#112f54]/20 bg-white px-3 py-2 font-normal text-[#112f54]"
+                  className="mt-1 w-full rounded-xl border-2 border-white/15 bg-[#1c1d3a] px-3 py-2 font-normal text-[#f5f5ff]"
                 >
                   {teamsInDisplayOrder.map((t) => (
                     <option key={t.id} value={t.id}>
@@ -114,48 +114,48 @@ export function CareerStopEditor({
                 </select>
               </label>
 
-              <label className="text-xs font-bold text-[#112f54]">
+              <label className="text-xs font-bold text-[#f5f5ff]">
                 Team name used at the time
                 <input
                   value={stop.teamNameUsed}
                   onChange={(e) => update(stop.id, { teamNameUsed: e.target.value })}
                   placeholder={team ? `${team.city} ${team.name}` : ""}
-                  className="mt-1 w-full rounded-xl border-2 border-[#112f54]/20 bg-white px-3 py-2 font-normal text-[#112f54]"
+                  className="mt-1 w-full rounded-xl border-2 border-white/15 bg-[#1c1d3a] px-3 py-2 font-normal text-[#f5f5ff]"
                 />
               </label>
 
-              <label className="text-xs font-bold text-[#112f54]">
+              <label className="text-xs font-bold text-[#f5f5ff]">
                 First season
                 <input
                   value={stop.firstSeason}
                   onChange={(e) => update(stop.id, { firstSeason: e.target.value })}
                   placeholder="2015"
-                  className="mt-1 w-full rounded-xl border-2 border-[#112f54]/20 bg-white px-3 py-2 font-normal text-[#112f54]"
+                  className="mt-1 w-full rounded-xl border-2 border-white/15 bg-[#1c1d3a] px-3 py-2 font-normal text-[#f5f5ff]"
                 />
               </label>
 
-              <label className="text-xs font-bold text-[#112f54]">
+              <label className="text-xs font-bold text-[#f5f5ff]">
                 Last season
                 <input
                   value={stop.lastSeason}
                   onChange={(e) => update(stop.id, { lastSeason: e.target.value })}
                   placeholder="2017"
-                  className="mt-1 w-full rounded-xl border-2 border-[#112f54]/20 bg-white px-3 py-2 font-normal text-[#112f54]"
+                  className="mt-1 w-full rounded-xl border-2 border-white/15 bg-[#1c1d3a] px-3 py-2 font-normal text-[#f5f5ff]"
                 />
               </label>
 
-              <label className="text-xs font-bold text-[#112f54]">
+              <label className="text-xs font-bold text-[#f5f5ff]">
                 Games played
                 <input
                   type="number"
                   min={0}
                   value={stop.gamesPlayed}
                   onChange={(e) => update(stop.id, { gamesPlayed: Number(e.target.value) })}
-                  className="mt-1 w-full rounded-xl border-2 border-[#112f54]/20 bg-white px-3 py-2 font-normal text-[#112f54]"
+                  className="mt-1 w-full rounded-xl border-2 border-white/15 bg-[#1c1d3a] px-3 py-2 font-normal text-[#f5f5ff]"
                 />
               </label>
 
-              <label className="flex items-center gap-2 text-xs font-bold text-[#112f54] sm:mt-6">
+              <label className="flex items-center gap-2 text-xs font-bold text-[#f5f5ff] sm:mt-6">
                 <input
                   type="checkbox"
                   checked={stop.answerEligible}
@@ -165,13 +165,13 @@ export function CareerStopEditor({
                 Answer eligible (counts toward the puzzle)
               </label>
 
-              <label className="text-xs font-bold text-[#112f54] sm:col-span-2">
+              <label className="text-xs font-bold text-[#f5f5ff] sm:col-span-2">
                 Verification notes
                 <textarea
                   value={stop.verificationNotes ?? ""}
                   onChange={(e) => update(stop.id, { verificationNotes: e.target.value })}
                   rows={2}
-                  className="mt-1 w-full rounded-xl border-2 border-[#112f54]/20 bg-white px-3 py-2 font-normal text-[#112f54]"
+                  className="mt-1 w-full rounded-xl border-2 border-white/15 bg-[#1c1d3a] px-3 py-2 font-normal text-[#f5f5ff]"
                   placeholder="e.g. drafted but traded before appearing — not eligible"
                 />
               </label>
@@ -183,7 +183,7 @@ export function CareerStopEditor({
       <button
         type="button"
         onClick={addStop}
-        className="w-full rounded-2xl border-2 border-dashed border-[#112f54]/30 py-3 text-sm font-black uppercase tracking-wide text-[#112f54] hover:bg-[#112f54]/5"
+        className="w-full rounded-2xl border-2 border-dashed border-white/20 py-3 text-sm font-black uppercase tracking-wide text-[#f5f5ff] hover:bg-white/5"
       >
         + Add Career Stop
       </button>

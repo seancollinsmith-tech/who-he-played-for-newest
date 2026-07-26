@@ -3,7 +3,7 @@ import { MAX_MISTAKES } from "@/lib/game/scoring";
 
 export function MistakeTracker({ mistakes }: { mistakes: number }) {
   return (
-    <div className="rounded-2xl bg-[#ee5a1f] p-4 text-white">
+    <div className="rounded-2xl bg-[#f0197c] p-4 text-white">
       <p className="mono text-[10px] uppercase tracking-[0.24em] opacity-70">Mistakes</p>
       <div
         className="mt-2 flex items-center gap-2"
@@ -15,7 +15,7 @@ export function MistakeTracker({ mistakes }: { mistakes: number }) {
             key={index}
             size={25}
             aria-hidden="true"
-            className={index < mistakes ? "opacity-30" : "text-[#fff4d9]"}
+            className={index < mistakes ? "opacity-30" : "text-[#ffe9a8]"}
             fill="currentColor"
           />
         ))}

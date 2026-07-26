@@ -135,14 +135,22 @@ see `getPublishedDailyGame` in `lib/supabase/queries.ts`.
 - **Logo:** `public/branding/spanner-sports-logo.png` (transparent cutout, used
   in the header), `public/branding/spanner-sports-logo-black-bg.jpeg` (original,
   used for social share previews), and `public/branding/favicon-512.png` /
-  `public/favicon.ico` (square version on a navy backdrop, used as the site
-  favicon). To swap the logo, replace these files with new exports at the same
-  paths and sizes — if the new logo isn't already transparent, re-run a
-  chroma-key pass (see git history / ask Claude) rather than dropping a
-  black-background image straight into the header.
-- **Colors & fonts:** CSS variables in `app/globals.css` (`--cream`,
-  `--navy`, `--orange`, `--gold`, `--green`, `--red`) and the `display` /
-  `mono` font stacks in `tailwind.config.ts`.
+  `public/favicon.ico` (square version, used as the site favicon). To swap
+  the logo, replace these files with new exports at the same paths and sizes
+  — if the new logo isn't already transparent, re-run a chroma-key pass (see
+  git history / ask Claude) rather than dropping a black-background image
+  straight into the header.
+- **Colors & fonts:** CSS variables in `app/globals.css` — the site runs a
+  neon-on-black theme matching the SpannerSports mark: `--bg` (#0a0a14) and
+  `--surface`/`--surface-alt` for the near-black background and dark glass
+  cards, `--blue` (#29b6f6), `--pink` (#f0197c, primary CTA), `--gold`
+  (#ffc93c, secondary accent), `--purple` (#7c3aed), `--green` (#22e584,
+  correct) and `--red` (#ff3358, incorrect). Component files mostly use
+  literal Tailwind arbitrary-value classes (e.g. `bg-[#f0197c]`) rather than
+  the CSS vars directly, so a broad recolor means updating those hex values
+  across `components/` and `app/` — ask Claude to do a scripted pass the way
+  this theme was applied, rather than editing every file by hand. The
+  `display` / `mono` font stacks live in `tailwind.config.ts`.
 - **Team colors/order:** `lib/data/teams.ts` (and mirror in
   `supabase/schema.sql` if you're on Supabase).
 - **Scoring rules:** `lib/game/scoring.ts` — starting score, per-mistake

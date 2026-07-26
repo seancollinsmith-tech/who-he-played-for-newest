@@ -20,11 +20,11 @@ export default function PracticeIndexPage() {
       <div className="game-shell">
         <Header streak={streak} />
 
-        <section className="rounded-[2rem] border-2 border-[#112f54]/15 bg-[#f7efdc]/75 p-5 shadow-card backdrop-blur sm:p-8">
-          <h1 className="display text-4xl font-black uppercase text-[#112f54]">
+        <section className="rounded-[2rem] border-2 border-white/10 bg-[#14152c]/80 p-5 shadow-card backdrop-blur sm:p-8">
+          <h1 className="display text-4xl font-black uppercase text-[#f5f5ff]">
             Practice Mode
           </h1>
-          <p className="mt-2 max-w-xl text-sm leading-6 text-[#423920]/75">
+          <p className="mt-2 max-w-xl text-sm leading-6 text-[#c7c6e0]/75">
             Play any verified puzzle as many times as you like. Practice
             results never affect your daily streak.
           </p>
@@ -34,17 +34,17 @@ export default function PracticeIndexPage() {
               <Link
                 key={player.id}
                 href={`/practice/${player.slug}`}
-                className="flex items-center justify-between rounded-2xl border-2 border-[#112f54]/15 bg-white/60 px-5 py-4 transition hover:-translate-y-0.5 hover:border-[#ee5a1f] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ee5a1f]"
+                className="flex items-center justify-between rounded-2xl border-2 border-white/10 bg-[#1c1d3a]/60 px-5 py-4 transition hover:-translate-y-0.5 hover:border-[#f0197c] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ffc93c]"
               >
                 <div>
-                  <p className="display text-xl font-black text-[#112f54]">
+                  <p className="display text-xl font-black text-[#f5f5ff]">
                     {player.fullName}
                   </p>
-                  <p className="mono text-xs uppercase tracking-widest text-[#423920]/50">
+                  <p className="mono text-xs uppercase tracking-widest text-[#c7c6e0]/50">
                     {player.careerYearsLabel} &bull; {player.difficulty}
                   </p>
                 </div>
-                <span className="rounded-full bg-[#112f54] px-3 py-1 text-xs font-black text-white">
+                <span className="rounded-full bg-[#123e91] px-3 py-1 text-xs font-black text-white">
                   Play
                 </span>
               </Link>
@@ -52,7 +52,7 @@ export default function PracticeIndexPage() {
           </div>
 
           {verifiedPlayers.length === 0 && (
-            <p className="mt-6 text-sm text-[#423920]/60">
+            <p className="mt-6 text-sm text-[#c7c6e0]/60">
               No verified puzzles are available yet — check back soon.
             </p>
           )}

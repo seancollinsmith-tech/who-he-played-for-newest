@@ -73,7 +73,7 @@ export function AdminGuard({ children }: { children: React.ReactNode }) {
   if (checking) {
     return (
       <div className="grid min-h-[40vh] place-items-center">
-        <p className="mono text-sm uppercase tracking-widest text-[#423920]/50">
+        <p className="mono text-sm uppercase tracking-widest text-[#c7c6e0]/50">
           Checking admin access…
         </p>
       </div>
@@ -82,18 +82,18 @@ export function AdminGuard({ children }: { children: React.ReactNode }) {
 
   if (!allowed) {
     return (
-      <section className="mx-auto max-w-md rounded-[2rem] border-2 border-[#112f54]/15 bg-[#f7efdc]/75 p-6 shadow-card sm:p-8">
-        <h1 className="display text-3xl font-black uppercase text-[#112f54]">Admin Access</h1>
+      <section className="mx-auto max-w-md rounded-[2rem] border-2 border-white/10 bg-[#14152c]/80 p-6 shadow-card sm:p-8">
+        <h1 className="display text-3xl font-black uppercase text-[#f5f5ff]">Admin Access</h1>
 
         {supabase ? (
-          <p className="mt-4 text-sm leading-6 text-[#423920]/80">
+          <p className="mt-4 text-sm leading-6 text-[#c7c6e0]/80">
             You need to be signed in with an admin account to view this page.
             Sign in, then ask an existing admin to grant your account access
-            via <code className="rounded bg-white px-1 py-0.5">profiles.is_admin</code>.
+            via <code className="rounded bg-[#1c1d3a] px-1 py-0.5">profiles.is_admin</code>.
           </p>
         ) : (
           <>
-            <p className="mt-4 text-sm leading-6 text-[#423920]/80">
+            <p className="mt-4 text-sm leading-6 text-[#c7c6e0]/80">
               Supabase isn&rsquo;t configured, so this is the demo-mode admin
               gate: local-browser only, protected by a shared passcode. It is
               not secure — configure Supabase for real admin authentication
@@ -105,16 +105,16 @@ export function AdminGuard({ children }: { children: React.ReactNode }) {
                 value={passcode}
                 onChange={(e) => setPasscode(e.target.value)}
                 placeholder="Demo passcode"
-                className="w-full rounded-2xl border-2 border-[#112f54]/20 bg-white px-4 py-3 text-[#112f54] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ee5a1f]"
+                className="w-full rounded-2xl border-2 border-white/15 bg-[#1c1d3a] px-4 py-3 text-[#f5f5ff] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ffc93c]"
               />
-              {error && <p className="text-sm font-bold text-[#bd2c2c]">{error}</p>}
+              {error && <p className="text-sm font-bold text-[#ff3358]">{error}</p>}
               <button
                 type="submit"
-                className="w-full rounded-2xl bg-[#112f54] px-5 py-3 font-black uppercase tracking-wider text-white"
+                className="w-full rounded-2xl bg-[#123e91] px-5 py-3 font-black uppercase tracking-wider text-white"
               >
                 Unlock Admin
               </button>
-              <p className="text-xs text-[#423920]/50">Hint: it's the site name, lowercase, no spaces.</p>
+              <p className="text-xs text-[#c7c6e0]/50">Hint: it's the site name, lowercase, no spaces.</p>
             </form>
           </>
         )}

@@ -12,7 +12,7 @@ const config: Config = {
         mono: ["Courier New", "monospace"]
       },
       boxShadow: {
-        card: "0 14px 30px rgba(13, 35, 61, 0.12)"
+        card: "0 14px 30px rgba(0, 0, 0, 0.45)"
       }
     }
   },

@@ -15,10 +15,10 @@ import {
 import { isSupabaseConfigured } from "@/lib/supabase/config";
 
 const STATUS_STYLES: Record<VerificationStatus, string> = {
-  unverified: "bg-[#423920]/10 text-[#423920]",
-  reviewed: "bg-[#ffbb33]/30 text-[#8a5a00]",
-  verified: "bg-[#1f7a45]/15 text-[#1f7a45]",
-  flagged: "bg-[#bd2c2c]/15 text-[#bd2c2c]"
+  unverified: "bg-white/10 text-[#c7c6e0]",
+  reviewed: "bg-[#ffc93c]/30 text-[#ffd873]",
+  verified: "bg-[#22e584]/15 text-[#22e584]",
+  flagged: "bg-[#ff3358]/15 text-[#ff3358]"
 };
 
 export default function AdminDashboardPage() {
@@ -73,13 +73,13 @@ export default function AdminDashboardPage() {
         <Header streak={0} />
 
         <AdminGuard>
-          <section className="rounded-[2rem] border-2 border-[#112f54]/15 bg-[#f7efdc]/75 p-5 shadow-card backdrop-blur sm:p-8">
+          <section className="rounded-[2rem] border-2 border-white/10 bg-[#14152c]/80 p-5 shadow-card backdrop-blur sm:p-8">
             <div className="flex flex-wrap items-center justify-between gap-3">
               <div>
-                <h1 className="display text-4xl font-black uppercase text-[#112f54]">
+                <h1 className="display text-4xl font-black uppercase text-[#f5f5ff]">
                   Admin Dashboard
                 </h1>
-                <p className="mono mt-1 text-xs uppercase tracking-widest text-[#423920]/50">
+                <p className="mono mt-1 text-xs uppercase tracking-widest text-[#c7c6e0]/50">
                   {supabaseMode ? "Connected to Supabase" : "Demo mode — local browser storage"}
                 </p>
               </div>
@@ -88,13 +88,13 @@ export default function AdminDashboardPage() {
                   <>
                     <button
                       onClick={handleSync}
-                      className="rounded-2xl border-2 border-[#1f7a45] px-4 py-2 text-sm font-black uppercase tracking-wide text-[#1f7a45]"
+                      className="rounded-2xl border-2 border-[#22e584] px-4 py-2 text-sm font-black uppercase tracking-wide text-[#22e584]"
                     >
                       Sync New Players
                     </button>
                     <button
                       onClick={handleReset}
-                      className="rounded-2xl border-2 border-[#bd2c2c]/50 px-4 py-2 text-sm font-black uppercase tracking-wide text-[#bd2c2c]"
+                      className="rounded-2xl border-2 border-[#ff3358]/50 px-4 py-2 text-sm font-black uppercase tracking-wide text-[#ff3358]"
                     >
                       Reset to Defaults
                     </button>
@@ -102,13 +102,13 @@ export default function AdminDashboardPage() {
                 )}
                 <Link
                   href="/admin/schedule"
-                  className="rounded-2xl border-2 border-[#112f54] px-4 py-2 text-sm font-black uppercase tracking-wide text-[#112f54]"
+                  className="rounded-2xl border-2 border-[#29b6f6] px-4 py-2 text-sm font-black uppercase tracking-wide text-[#f5f5ff]"
                 >
                   Schedule
                 </Link>
                 <Link
                   href="/admin/players/new"
-                  className="rounded-2xl bg-[#ee5a1f] px-4 py-2 text-sm font-black uppercase tracking-wide text-white"
+                  className="rounded-2xl bg-[#f0197c] px-4 py-2 text-sm font-black uppercase tracking-wide text-white"
                 >
                   New Player
                 </Link>
@@ -116,13 +116,13 @@ export default function AdminDashboardPage() {
             </div>
 
             {syncMessage && (
-              <p className="mt-4 rounded-2xl bg-[#1f7a45]/10 p-3 text-sm font-bold text-[#1f7a45]" role="status">
+              <p className="mt-4 rounded-2xl bg-[#22e584]/10 p-3 text-sm font-bold text-[#22e584]" role="status">
                 {syncMessage}
               </p>
             )}
 
             {!supabaseMode && (
-              <p className="mt-4 rounded-2xl bg-[#112f54]/5 p-4 text-xs leading-5 text-[#423920]/70">
+              <p className="mt-4 rounded-2xl bg-white/5 p-4 text-xs leading-5 text-[#c7c6e0]/70">
                 Demo mode stores changes in this browser only, seeded once
                 from the code the first time you opened this page. If the
                 code ships more players later (like this update did), click{" "}
@@ -138,14 +138,14 @@ export default function AdminDashboardPage() {
               {players.map((player) => (
                 <div
                   key={player.id}
-                  className="rounded-2xl border border-[#112f54]/15 bg-white/60 p-4"
+                  className="rounded-2xl border border-white/10 bg-[#1c1d3a]/60 p-4"
                 >
                   <div className="flex flex-wrap items-center justify-between gap-3">
                     <div>
-                      <p className="display text-xl font-black text-[#112f54]">
+                      <p className="display text-xl font-black text-[#f5f5ff]">
                         {player.fullName || "Untitled player"}
                       </p>
-                      <p className="mono text-xs uppercase tracking-widest text-[#423920]/50">
+                      <p className="mono text-xs uppercase tracking-widest text-[#c7c6e0]/50">
                         {player.careerYearsLabel || "—"} &bull; {player.difficulty} &bull;{" "}
                         {player.careerStops.length} stops
                       </p>
@@ -160,13 +160,13 @@ export default function AdminDashboardPage() {
                   <div className="mt-3 flex flex-wrap gap-2">
                     <Link
                       href={`/admin/players/${player.id}`}
-                      className="rounded-xl border-2 border-[#112f54]/25 px-3 py-1.5 text-xs font-black uppercase text-[#112f54]"
+                      className="rounded-xl border-2 border-white/15 px-3 py-1.5 text-xs font-black uppercase text-[#f5f5ff]"
                     >
                       Edit
                     </Link>
                     <Link
                       href={player.slug ? `/practice/${player.slug}` : "#"}
-                      className="rounded-xl border-2 border-[#112f54]/25 px-3 py-1.5 text-xs font-black uppercase text-[#112f54]"
+                      className="rounded-xl border-2 border-white/15 px-3 py-1.5 text-xs font-black uppercase text-[#f5f5ff]"
                     >
                       Preview
                     </Link>
@@ -176,14 +176,14 @@ export default function AdminDashboardPage() {
                         <button
                           key={s}
                           onClick={() => setStatus(player, s)}
-                          className="rounded-xl bg-[#112f54]/5 px-3 py-1.5 text-xs font-black uppercase text-[#112f54] hover:bg-[#112f54]/10"
+                          className="rounded-xl bg-white/5 px-3 py-1.5 text-xs font-black uppercase text-[#f5f5ff] hover:bg-white/10"
                         >
                           Mark {s}
                         </button>
                       ))}
                     <button
                       onClick={() => remove(player)}
-                      className="ml-auto rounded-xl border-2 border-[#bd2c2c]/40 px-3 py-1.5 text-xs font-black uppercase text-[#bd2c2c] hover:bg-[#bd2c2c]/5"
+                      className="ml-auto rounded-xl border-2 border-[#ff3358]/40 px-3 py-1.5 text-xs font-black uppercase text-[#ff3358] hover:bg-[#ff3358]/5"
                     >
                       Delete
                     </button>
@@ -192,7 +192,7 @@ export default function AdminDashboardPage() {
               ))}
 
               {players.length === 0 && (
-                <p className="text-sm text-[#423920]/60">No players yet — create one to get started.</p>
+                <p className="text-sm text-[#c7c6e0]/60">No players yet — create one to get started.</p>
               )}
             </div>
           </section>

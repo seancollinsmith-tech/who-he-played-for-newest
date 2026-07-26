@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#112F54"
+  themeColor: "#0a0a14"
 };
 
 export default function RootLayout({
@@ -34,7 +34,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         {children}
-        <p className="mx-auto max-w-2xl px-4 pb-8 text-center text-[10px] uppercase tracking-widest text-[#423920]/40">
+        <p className="mx-auto max-w-2xl px-4 pb-8 text-center text-[10px] uppercase tracking-widest text-[#c7c6e0]/40">
           Who He Played For is an independent SpannerSports production and is not
           affiliated with, endorsed by, or sponsored by the NBA or any NBA team.
         </p>

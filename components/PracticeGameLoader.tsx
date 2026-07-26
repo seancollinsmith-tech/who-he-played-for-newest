@@ -26,7 +26,7 @@ export function PracticeGameLoader({ puzzle }: { puzzle: Puzzle }) {
         onPracticeAgain={() => setAttempt((n) => n + 1)}
       />
       <footer className="py-6 text-center">
-        <p className="mono text-xs uppercase tracking-[0.18em] text-[#423920]/55">
+        <p className="mono text-xs uppercase tracking-[0.18em] text-[#c7c6e0]/55">
           Practice mode &bull; does not affect your daily streak
         </p>
       </footer>
