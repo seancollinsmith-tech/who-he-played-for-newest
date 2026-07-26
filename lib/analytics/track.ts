@@ -44,7 +44,8 @@ export async function trackEvent(input: TrackEventInput): Promise<void> {
   if (!supabase) return;
 
   try {
-    await supabase.from("analytics_events").insert({
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    await (supabase.from("analytics_events") as any).insert({
       event_type: input.eventType,
       game_number: input.gameNumber ?? null,
       game_date: input.gameDate ?? null,
