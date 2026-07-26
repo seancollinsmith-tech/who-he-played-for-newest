@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Check, X } from "lucide-react";
 import { Team, GuessState } from "@/lib/types";
+import { TeamMark } from "@/components/TeamMark";
 
 export function TeamCard({
   team,
@@ -39,6 +40,11 @@ export function TeamCard({
         disabled ? "cursor-default" : "cursor-pointer"
       }`}
     >
+      {state === "idle" && (
+        <div className="mb-1">
+          <TeamMark primaryColor={team.primaryColor} secondaryColor={team.secondaryColor} seed={team.id} />
+        </div>
+      )}
       <div className="display text-2xl font-black">{team.abbreviation}</div>
       <div className="mt-1 text-xs font-bold leading-tight opacity-75">
         {team.city}
