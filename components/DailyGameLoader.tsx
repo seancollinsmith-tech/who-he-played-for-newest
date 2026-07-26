@@ -9,36 +9,52 @@ import { loadDailyProgress, saveDailyProgress } from "@/lib/storage/gameProgress
 import { loadStats, recordDailyCompletion } from "@/lib/storage/stats";
 import { logDailyCompletion } from "@/lib/storage/completionLog";
 import { trackEvent } from "@/lib/analytics/track";
+import { todayLocalDateString } from "@/lib/game/daily";
 
-export function DailyGameLoader({
-  puzzle,
-  gameNumber,
-  gameDate,
-  gameDateLabel
-}: {
-  puzzle: Puzzle;
+interface DailyResponse {
   gameNumber: number;
   gameDate: string;
-  gameDateLabel: string;
-}) {
+  puzzle: Puzzle;
+}
+
+export function DailyGameLoader() {
   const router = useRouter();
   const [ready, setReady] = useState(false);
+  const [daily, setDaily] = useState<DailyResponse | null>(null);
   const [progress, setProgress] = useState<GameProgress | null>(null);
   const [stats, setStats] = useState<StatsRecord>(EMPTY_STATS);
 
   useEffect(() => {
-    const loadedProgress = loadDailyProgress(gameNumber);
-    setProgress(loadedProgress);
-    setStats(loadStats());
-    setReady(true);
+    // Always the browser's own local date — never the server's clock,
+    // which runs on UTC and can already be "tomorrow" for anyone west of it.
+    const gameDate = todayLocalDateString();
 
-    if (!loadedProgress) {
-      trackEvent({ eventType: "daily_started", gameNumber, gameDate });
+    let cancelled = false;
+
+    async function load() {
+      setStats(loadStats());
+
+      const res = await fetch(`/api/daily?date=${gameDate}`);
+      const data: DailyResponse = await res.json();
+      if (cancelled) return;
+
+      setDaily(data);
+      const loadedProgress = loadDailyProgress(data.gameNumber);
+      setProgress(loadedProgress);
+      setReady(true);
+
+      if (!loadedProgress) {
+        trackEvent({ eventType: "daily_started", gameNumber: data.gameNumber, gameDate: data.gameDate });
+      }
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [gameNumber]);
 
-  if (!ready) {
+    load();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  if (!ready || !daily) {
     return (
       <div className="game-shell">
         <Header streak={stats.currentStreak} />
@@ -51,6 +67,13 @@ export function DailyGameLoader({
     );
   }
 
+  const { puzzle, gameNumber, gameDate } = daily;
+  const gameDateLabel = new Date(`${gameDate}T00:00:00`).toLocaleDateString(undefined, {
+    weekday: "long",
+    month: "long",
+    day: "numeric",
+    year: "numeric"
+  });
   const locked = progress?.status === "won" || progress?.status === "lost";
 
   return (
