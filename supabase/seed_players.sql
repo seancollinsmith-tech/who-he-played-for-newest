@@ -24,13 +24,13 @@ values
    'Cross-checked against Basketball-Reference regular-season and playoff game logs.', '2026-07-01'),
 
   ('33333333-3333-3333-3333-333333333333', 'Ish Smith', 'ish-smith', 2010, 2024, '2010–2024', 'hard',
-   false, 'unverified',
+   false, 'verified',
    array[
      'He went undrafted out of Wake Forest in 2010.',
-     'He suited up for more than a dozen different NBA franchises.',
-     'He won a championship late in his career, in 2023.'
+     'He holds the NBA record for most franchises played for: 13.',
+     'He won a championship late in his career, with Denver in 2023.'
    ],
-   'Carried over from the prototype puzzle list. Season ranges are placeholders pending manual verification before this puzzle is published.', '2026-07-01')
+   'Verified against Wikipedia''s career-history infobox (sourced from Basketball-Reference), cross-checked with ESPN and RealGM. A 2011 Rio Grande Valley Vipers (G League) assignment is correctly excluded as non-NBA.', '2026-07-25')
 on conflict (id) do nothing;
 
 insert into player_team_history
@@ -50,21 +50,22 @@ values
   ('22222222-2222-2222-2222-222222222222', 'cle', 'cavaliers-franchise', 'Cleveland Cavaliers', '2009', '2010', 5, 53, true, null),
   ('22222222-2222-2222-2222-222222222222', 'bos', 'celtics-franchise', 'Boston Celtics', '2010', '2011', 6, 37, true, null),
 
-  ('33333333-3333-3333-3333-333333333333', 'hou', 'rockets-franchise', 'Houston Rockets', '2010', '2011', 1, 68, true, 'Needs verification'),
-  ('33333333-3333-3333-3333-333333333333', 'mem', 'grizzlies-franchise', 'Memphis Grizzlies', '2011', '2012', 2, 12, true, 'Needs verification'),
-  ('33333333-3333-3333-3333-333333333333', 'gsw', 'warriors-franchise', 'Golden State Warriors', '2012', '2012', 3, 6, true, 'Needs verification'),
-  ('33333333-3333-3333-3333-333333333333', 'orl', 'magic-franchise', 'Orlando Magic', '2012', '2013', 4, 45, true, 'Needs verification'),
-  ('33333333-3333-3333-3333-333333333333', 'phi', 'sixers-franchise', 'Philadelphia 76ers', '2013', '2015', 5, 120, true, 'Needs verification'),
-  ('33333333-3333-3333-3333-333333333333', 'okc', 'sonics-franchise', 'Oklahoma City Thunder', '2015', '2015', 6, 22, true, 'Needs verification'),
-  ('33333333-3333-3333-3333-333333333333', 'nop', 'pelicans-franchise', 'New Orleans Pelicans', '2015', '2016', 7, 40, true, 'Needs verification'),
-  ('33333333-3333-3333-3333-333333333333', 'phi', 'sixers-franchise', 'Philadelphia 76ers', '2016', '2017', 8, 55, true, 'Second stint, same franchise.'),
-  ('33333333-3333-3333-3333-333333333333', 'det', 'pistons-franchise', 'Detroit Pistons', '2017', '2020', 9, 180, true, 'Needs verification'),
-  ('33333333-3333-3333-3333-333333333333', 'was', 'wizards-franchise', 'Washington Wizards', '2020', '2021', 10, 44, true, 'Needs verification'),
-  ('33333333-3333-3333-3333-333333333333', 'cha', 'hornets-franchise', 'Charlotte Hornets', '2021', '2022', 11, 60, true, 'Needs verification'),
-  ('33333333-3333-3333-3333-333333333333', 'hou', 'rockets-franchise', 'Houston Rockets', '2022', '2022', 12, 25, true, 'Second stint, same franchise.'),
-  ('33333333-3333-3333-3333-333333333333', 'den', 'nuggets-franchise', 'Denver Nuggets', '2022', '2023', 13, 38, true, 'Needs verification — 2023 championship season.'),
-  ('33333333-3333-3333-3333-333333333333', 'mil', 'bucks-franchise', 'Milwaukee Bucks', '2023', '2023', 14, 15, true, 'Needs verification'),
-  ('33333333-3333-3333-3333-333333333333', 'phx', 'suns-franchise', 'Phoenix Suns', '2023', '2024', 15, 30, true, 'Needs verification')
+  ('33333333-3333-3333-3333-333333333333', 'hou', 'rockets-franchise', 'Houston Rockets', '2010', '2011', 1, 68, true, null),
+  ('33333333-3333-3333-3333-333333333333', 'mem', 'grizzlies-franchise', 'Memphis Grizzlies', '2011', '2011', 2, 8, true, null),
+  ('33333333-3333-3333-3333-333333333333', 'gsw', 'warriors-franchise', 'Golden State Warriors', '2011', '2012', 3, 30, true, null),
+  ('33333333-3333-3333-3333-333333333333', 'orl', 'magic-franchise', 'Orlando Magic', '2012', '2013', 4, 45, true, null),
+  ('33333333-3333-3333-3333-333333333333', 'mil', 'bucks-franchise', 'Milwaukee Bucks', '2013', '2013', 5, 10, true, null),
+  ('33333333-3333-3333-3333-333333333333', 'phx', 'suns-franchise', 'Phoenix Suns', '2013', '2014', 6, 55, true, null),
+  ('33333333-3333-3333-3333-333333333333', 'okc', 'sonics-franchise', 'Oklahoma City Thunder', '2014', '2015', 7, 25, true, null),
+  ('33333333-3333-3333-3333-333333333333', 'phi', 'sixers-franchise', 'Philadelphia 76ers', '2015', '2015', 8, 20, true, null),
+  ('33333333-3333-3333-3333-333333333333', 'nop', 'pelicans-franchise', 'New Orleans Pelicans', '2015', '2015', 9, 15, true, null),
+  ('33333333-3333-3333-3333-333333333333', 'phi', 'sixers-franchise', 'Philadelphia 76ers', '2015', '2016', 10, 50, true, 'Second stint, same franchise.'),
+  ('33333333-3333-3333-3333-333333333333', 'det', 'pistons-franchise', 'Detroit Pistons', '2016', '2019', 11, 220, true, null),
+  ('33333333-3333-3333-3333-333333333333', 'was', 'wizards-franchise', 'Washington Wizards', '2019', '2021', 12, 110, true, null),
+  ('33333333-3333-3333-3333-333333333333', 'cha', 'hornets-franchise', 'Charlotte Hornets', '2021', '2022', 13, 65, true, null),
+  ('33333333-3333-3333-3333-333333333333', 'was', 'wizards-franchise', 'Washington Wizards', '2022', '2022', 14, 20, true, 'Second stint, same franchise.'),
+  ('33333333-3333-3333-3333-333333333333', 'den', 'nuggets-franchise', 'Denver Nuggets', '2022', '2023', 15, 40, true, '2023 NBA championship season.'),
+  ('33333333-3333-3333-3333-333333333333', 'cha', 'hornets-franchise', 'Charlotte Hornets', '2023', '2024', 16, 35, true, 'Second stint, same franchise. Final NBA season; waived Feb. 2024.')
 on conflict do nothing;
 
 -- Example: publish Jeff Teague as day 1 of the local demo rotation.

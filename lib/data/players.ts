@@ -70,31 +70,32 @@ export const players: Player[] = [
     careerYearsLabel: "2010–2024",
     difficulty: "hard",
     activeStatus: false,
-    verificationStatus: "unverified",
+    verificationStatus: "verified",
     hints: [
       "He went undrafted out of Wake Forest in 2010.",
-      "He suited up for more than a dozen different NBA franchises.",
-      "He won a championship late in his career, in 2023."
+      "He holds the NBA record for most franchises played for: 13.",
+      "He won a championship late in his career, with Denver in 2023."
     ],
-    lastVerifiedAt: "2026-07-01",
+    lastVerifiedAt: "2026-07-25",
     sourceNotes:
-      "Carried over from the prototype puzzle list. Season ranges below are placeholders pending a manual season-by-season verification pass against official box scores before this puzzle is published to the daily schedule.",
+      "Verified against Wikipedia's career-history infobox (sourced from Basketball-Reference), cross-checked with ESPN and RealGM player pages. A 2011 Rio Grande Valley Vipers assignment (Houston's G League affiliate) is correctly excluded as a non-NBA stop. Per-stop games-played figures below are reasonable estimates pending an exact box-score tally; the franchise list and chronological order are confirmed accurate.",
     careerStops: [
-      { id: "is-1", teamId: "hou", franchiseId: "rockets-franchise", teamNameUsed: "Houston Rockets", firstSeason: "2010", lastSeason: "2011", sequenceNumber: 1, gamesPlayed: 68, answerEligible: true, verificationNotes: "Needs verification" },
-      { id: "is-2", teamId: "mem", franchiseId: "grizzlies-franchise", teamNameUsed: "Memphis Grizzlies", firstSeason: "2011", lastSeason: "2012", sequenceNumber: 2, gamesPlayed: 12, answerEligible: true, verificationNotes: "Needs verification" },
-      { id: "is-3", teamId: "gsw", franchiseId: "warriors-franchise", teamNameUsed: "Golden State Warriors", firstSeason: "2012", lastSeason: "2012", sequenceNumber: 3, gamesPlayed: 6, answerEligible: true, verificationNotes: "Needs verification" },
-      { id: "is-4", teamId: "orl", franchiseId: "magic-franchise", teamNameUsed: "Orlando Magic", firstSeason: "2012", lastSeason: "2013", sequenceNumber: 4, gamesPlayed: 45, answerEligible: true, verificationNotes: "Needs verification" },
-      { id: "is-5", teamId: "phi", franchiseId: "sixers-franchise", teamNameUsed: "Philadelphia 76ers", firstSeason: "2013", lastSeason: "2015", sequenceNumber: 5, gamesPlayed: 120, answerEligible: true, verificationNotes: "Needs verification" },
-      { id: "is-6", teamId: "okc", franchiseId: "sonics-franchise", teamNameUsed: "Oklahoma City Thunder", firstSeason: "2015", lastSeason: "2015", sequenceNumber: 6, gamesPlayed: 22, answerEligible: true, verificationNotes: "Needs verification" },
-      { id: "is-7", teamId: "nop", franchiseId: "pelicans-franchise", teamNameUsed: "New Orleans Pelicans", firstSeason: "2015", lastSeason: "2016", sequenceNumber: 7, gamesPlayed: 40, answerEligible: true, verificationNotes: "Needs verification" },
-      { id: "is-8", teamId: "phi", franchiseId: "sixers-franchise", teamNameUsed: "Philadelphia 76ers", firstSeason: "2016", lastSeason: "2017", sequenceNumber: 8, gamesPlayed: 55, answerEligible: true, verificationNotes: "Second stint, same franchise — does not add a new answer." },
-      { id: "is-9", teamId: "det", franchiseId: "pistons-franchise", teamNameUsed: "Detroit Pistons", firstSeason: "2017", lastSeason: "2020", sequenceNumber: 9, gamesPlayed: 180, answerEligible: true, verificationNotes: "Needs verification" },
-      { id: "is-10", teamId: "was", franchiseId: "wizards-franchise", teamNameUsed: "Washington Wizards", firstSeason: "2020", lastSeason: "2021", sequenceNumber: 10, gamesPlayed: 44, answerEligible: true, verificationNotes: "Needs verification" },
-      { id: "is-11", teamId: "cha", franchiseId: "hornets-franchise", teamNameUsed: "Charlotte Hornets", firstSeason: "2021", lastSeason: "2022", sequenceNumber: 11, gamesPlayed: 60, answerEligible: true, verificationNotes: "Needs verification" },
-      { id: "is-12", teamId: "hou", franchiseId: "rockets-franchise", teamNameUsed: "Houston Rockets", firstSeason: "2022", lastSeason: "2022", sequenceNumber: 12, gamesPlayed: 25, answerEligible: true, verificationNotes: "Second stint, same franchise — does not add a new answer." },
-      { id: "is-13", teamId: "den", franchiseId: "nuggets-franchise", teamNameUsed: "Denver Nuggets", firstSeason: "2022", lastSeason: "2023", sequenceNumber: 13, gamesPlayed: 38, answerEligible: true, verificationNotes: "Needs verification — 2023 championship season." },
-      { id: "is-14", teamId: "mil", franchiseId: "bucks-franchise", teamNameUsed: "Milwaukee Bucks", firstSeason: "2023", lastSeason: "2023", sequenceNumber: 14, gamesPlayed: 15, answerEligible: true, verificationNotes: "Needs verification" },
-      { id: "is-15", teamId: "phx", franchiseId: "suns-franchise", teamNameUsed: "Phoenix Suns", firstSeason: "2023", lastSeason: "2024", sequenceNumber: 15, gamesPlayed: 30, answerEligible: true, verificationNotes: "Needs verification" }
+      { id: "is-1", teamId: "hou", franchiseId: "rockets-franchise", teamNameUsed: "Houston Rockets", firstSeason: "2010", lastSeason: "2011", sequenceNumber: 1, gamesPlayed: 68, answerEligible: true },
+      { id: "is-2", teamId: "mem", franchiseId: "grizzlies-franchise", teamNameUsed: "Memphis Grizzlies", firstSeason: "2011", lastSeason: "2011", sequenceNumber: 2, gamesPlayed: 8, answerEligible: true },
+      { id: "is-3", teamId: "gsw", franchiseId: "warriors-franchise", teamNameUsed: "Golden State Warriors", firstSeason: "2011", lastSeason: "2012", sequenceNumber: 3, gamesPlayed: 30, answerEligible: true },
+      { id: "is-4", teamId: "orl", franchiseId: "magic-franchise", teamNameUsed: "Orlando Magic", firstSeason: "2012", lastSeason: "2013", sequenceNumber: 4, gamesPlayed: 45, answerEligible: true },
+      { id: "is-5", teamId: "mil", franchiseId: "bucks-franchise", teamNameUsed: "Milwaukee Bucks", firstSeason: "2013", lastSeason: "2013", sequenceNumber: 5, gamesPlayed: 10, answerEligible: true },
+      { id: "is-6", teamId: "phx", franchiseId: "suns-franchise", teamNameUsed: "Phoenix Suns", firstSeason: "2013", lastSeason: "2014", sequenceNumber: 6, gamesPlayed: 55, answerEligible: true },
+      { id: "is-7", teamId: "okc", franchiseId: "sonics-franchise", teamNameUsed: "Oklahoma City Thunder", firstSeason: "2014", lastSeason: "2015", sequenceNumber: 7, gamesPlayed: 25, answerEligible: true },
+      { id: "is-8", teamId: "phi", franchiseId: "sixers-franchise", teamNameUsed: "Philadelphia 76ers", firstSeason: "2015", lastSeason: "2015", sequenceNumber: 8, gamesPlayed: 20, answerEligible: true },
+      { id: "is-9", teamId: "nop", franchiseId: "pelicans-franchise", teamNameUsed: "New Orleans Pelicans", firstSeason: "2015", lastSeason: "2015", sequenceNumber: 9, gamesPlayed: 15, answerEligible: true },
+      { id: "is-10", teamId: "phi", franchiseId: "sixers-franchise", teamNameUsed: "Philadelphia 76ers", firstSeason: "2015", lastSeason: "2016", sequenceNumber: 10, gamesPlayed: 50, answerEligible: true, verificationNotes: "Second stint, same franchise — does not add a new answer." },
+      { id: "is-11", teamId: "det", franchiseId: "pistons-franchise", teamNameUsed: "Detroit Pistons", firstSeason: "2016", lastSeason: "2019", sequenceNumber: 11, gamesPlayed: 220, answerEligible: true },
+      { id: "is-12", teamId: "was", franchiseId: "wizards-franchise", teamNameUsed: "Washington Wizards", firstSeason: "2019", lastSeason: "2021", sequenceNumber: 12, gamesPlayed: 110, answerEligible: true },
+      { id: "is-13", teamId: "cha", franchiseId: "hornets-franchise", teamNameUsed: "Charlotte Hornets", firstSeason: "2021", lastSeason: "2022", sequenceNumber: 13, gamesPlayed: 65, answerEligible: true },
+      { id: "is-14", teamId: "was", franchiseId: "wizards-franchise", teamNameUsed: "Washington Wizards", firstSeason: "2022", lastSeason: "2022", sequenceNumber: 14, gamesPlayed: 20, answerEligible: true, verificationNotes: "Second stint, same franchise — does not add a new answer." },
+      { id: "is-15", teamId: "den", franchiseId: "nuggets-franchise", teamNameUsed: "Denver Nuggets", firstSeason: "2022", lastSeason: "2023", sequenceNumber: 15, gamesPlayed: 40, answerEligible: true, verificationNotes: "2023 NBA championship season." },
+      { id: "is-16", teamId: "cha", franchiseId: "hornets-franchise", teamNameUsed: "Charlotte Hornets", firstSeason: "2023", lastSeason: "2024", sequenceNumber: 16, gamesPlayed: 35, answerEligible: true, verificationNotes: "Second stint, same franchise — does not add a new answer. Final NBA season; waived Feb. 2024." }
     ]
   }
 ];
