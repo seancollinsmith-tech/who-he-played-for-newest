@@ -48,7 +48,7 @@ export function GameBoard({
   const [hintsUsed, setHintsUsed] = useState(initialProgress?.hintsUsed ?? 0);
   const [showHowToPlay, setShowHowToPlay] = useState(false);
   const [showStats, setShowStats] = useState(false);
-  const [showResults, setShowResults] = useState(locked);
+  const [showResults, setShowResults] = useState(false);
   const [statusMessage, setStatusMessage] = useState("");
 
   const won = correct.length === puzzle.answerTeamIds.length;
@@ -75,9 +75,15 @@ export function GameBoard({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [correct, wrong, guessOrder, hintsUsed]);
 
+  // Captured once, on first render: was this puzzle already finished
+  // *before* the component mounted (e.g. reloading an already-completed
+  // daily game)? If so, we don't want to force the results modal open or
+  // re-fire onComplete on every visit — the "View Results" button covers it.
+  const [wasCompleteOnMount] = useState(complete);
+
   const completeHandled = useMemo(() => ({ current: false }), [puzzle.playerId]);
   useEffect(() => {
-    if (!complete || completeHandled.current) return;
+    if (wasCompleteOnMount || !complete || completeHandled.current) return;
     completeHandled.current = true;
     setShowResults(true);
     if (onComplete) {
