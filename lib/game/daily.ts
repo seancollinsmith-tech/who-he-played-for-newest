@@ -20,6 +20,14 @@ export function gameNumberForDate(dateString: string): number {
   return Math.max(1, days + 1);
 }
 
+/** Inverse of gameNumberForDate: the local date string for a given game number. */
+export function dateForGameNumber(gameNumber: number): string {
+  const start = new Date(`${EPOCH_DATE}T00:00:00`);
+  const target = new Date(start);
+  target.setDate(target.getDate() + (gameNumber - 1));
+  return todayLocalDateString(target);
+}
+
 /**
  * Local fallback rotation used when Supabase isn't configured (or a
  * `daily_games` row hasn't been published for a given date): cycles verified

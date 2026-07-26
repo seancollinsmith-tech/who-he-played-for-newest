@@ -7,6 +7,8 @@ import { GameBoard } from "@/components/GameBoard";
 import { Puzzle, GameProgress, EMPTY_STATS, StatsRecord } from "@/lib/types";
 import { loadDailyProgress, saveDailyProgress } from "@/lib/storage/gameProgress";
 import { loadStats, recordDailyCompletion } from "@/lib/storage/stats";
+import { logDailyCompletion } from "@/lib/storage/completionLog";
+import { trackEvent } from "@/lib/analytics/track";
 
 export function DailyGameLoader({
   puzzle,
@@ -25,9 +27,15 @@ export function DailyGameLoader({
   const [stats, setStats] = useState<StatsRecord>(EMPTY_STATS);
 
   useEffect(() => {
-    setProgress(loadDailyProgress(gameNumber));
+    const loadedProgress = loadDailyProgress(gameNumber);
+    setProgress(loadedProgress);
     setStats(loadStats());
     setReady(true);
+
+    if (!loadedProgress) {
+      trackEvent({ eventType: "daily_started", gameNumber, gameDate });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [gameNumber]);
 
   if (!ready) {
@@ -68,6 +76,24 @@ export function DailyGameLoader({
             perfect: final.status === "won" && final.wrongTeamIds.length === 0 && final.hintsUsed === 0
           });
           setStats(updated);
+          logDailyCompletion({
+            gameNumber,
+            gameDate,
+            playerId: final.playerId,
+            status: final.status === "won" ? "won" : "lost",
+            score: final.score
+          });
+          trackEvent({
+            eventType: "daily_completed",
+            gameNumber,
+            gameDate,
+            playerId: final.playerId,
+            mode: "daily",
+            status: final.status === "won" ? "won" : "lost",
+            score: final.score,
+            hintsUsed: final.hintsUsed,
+            wrongCount: final.wrongTeamIds.length
+          });
         }}
         onPracticeAgain={() => router.push("/practice")}
       />

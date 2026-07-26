@@ -211,6 +211,38 @@ export interface Database {
         Update: Partial<Database["public"]["Tables"]["user_statistics"]["Insert"]>;
       Relationships: [];
       };
+      analytics_events: {
+        Row: {
+          id: string;
+          event_type: "daily_started" | "daily_completed" | "practice_completed";
+          game_number: number | null;
+          game_date: string | null;
+          player_id: string | null;
+          mode: "daily" | "practice" | null;
+          status: "won" | "lost" | null;
+          score: number | null;
+          hints_used: number | null;
+          wrong_count: number | null;
+          session_id: string;
+          created_at: string;
+        };
+        Insert: {
+          id?: string;
+          event_type: "daily_started" | "daily_completed" | "practice_completed";
+          game_number?: number | null;
+          game_date?: string | null;
+          player_id?: string | null;
+          mode?: "daily" | "practice" | null;
+          status?: "won" | "lost" | null;
+          score?: number | null;
+          hints_used?: number | null;
+          wrong_count?: number | null;
+          session_id: string;
+          created_at?: string;
+        };
+        Update: Partial<Database["public"]["Tables"]["analytics_events"]["Insert"]>;
+        Relationships: [];
+      };
     };
     Views: Record<string, never>;
     Functions: Record<string, never>;

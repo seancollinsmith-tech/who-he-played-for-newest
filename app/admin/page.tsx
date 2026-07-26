@@ -107,6 +107,12 @@ export default function AdminDashboardPage() {
                   Schedule
                 </Link>
                 <Link
+                  href="/admin/analytics"
+                  className="rounded-2xl border-2 border-[#29b6f6] px-4 py-2 text-sm font-black uppercase tracking-wide text-[#f5f5ff]"
+                >
+                  Analytics
+                </Link>
+                <Link
                   href="/admin/players/new"
                   className="rounded-2xl bg-[#f0197c] px-4 py-2 text-sm font-black uppercase tracking-wide text-white"
                 >

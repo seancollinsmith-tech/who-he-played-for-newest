@@ -306,5 +306,46 @@ insert into teams (id, franchise_id, city, name, abbreviation, primary_color, se
   ('was', 'wizards-franchise', 'Washington', 'Wizards', 'WAS', '#112F54', '#BD2C2C', 30)
 on conflict (id) do nothing;
 
+-- ---------------------------------------------------------------------------
+-- analytics_events: lightweight, anonymous event log for basic product
+-- analytics (completion rate, average score, daily-return activity). No
+-- personal data is stored — session_id is a random client-generated token,
+-- not tied to any account.
+-- ---------------------------------------------------------------------------
+create table if not exists analytics_events (
+  id uuid primary key default uuid_generate_v4(),
+  event_type text not null check (event_type in ('daily_started', 'daily_completed', 'practice_completed')),
+  game_number integer,
+  game_date date,
+  player_id uuid references players (id),
+  mode text check (mode in ('daily', 'practice')),
+  status text check (status in ('won', 'lost')),
+  score integer,
+  hints_used integer,
+  wrong_count integer,
+  session_id text not null,
+  created_at timestamptz not null default now()
+);
+
+create index if not exists idx_analytics_events_type on analytics_events (event_type);
+create index if not exists idx_analytics_events_created_at on analytics_events (created_at);
+create index if not exists idx_analytics_events_game_date on analytics_events (game_date);
+
+alter table analytics_events enable row level security;
+
+-- Anyone (including anon players) can log an event — this is what lets
+-- the game itself send analytics without requiring an account.
+drop policy if exists "public insert analytics events" on analytics_events;
+create policy "public insert analytics events" on analytics_events
+  for insert with check (true);
+
+-- Only admins can read the analytics — this is aggregate product data, not
+-- something individual players need access to.
+drop policy if exists "admin read analytics events" on analytics_events;
+create policy "admin read analytics events" on analytics_events
+  for select using (
+    exists (select 1 from profiles where id = auth.uid() and is_admin = true)
+  );
+
 -- To make yourself an admin after signing up:
 --   update profiles set is_admin = true where username = 'you@example.com';

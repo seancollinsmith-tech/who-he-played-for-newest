@@ -101,6 +101,72 @@ export async function listAllPlayers(): Promise<Player[] | null> {
   return playerRows.map((row) => toPlayer(row, historyRows ?? []));
 }
 
+export interface AnalyticsSummary {
+  totalDailyCompleted: number;
+  totalDailyStarted: number;
+  completionRate: number; // 0-100
+  averageScore: number;
+  winRate: number; // 0-100
+  uniqueDaysWithActivity: number;
+  recentDays: Array<{ gameDate: string; completions: number; averageScore: number }>;
+}
+
+/** Pulls an aggregate analytics summary from analytics_events. Returns null
+ *  if Supabase isn't configured, or if the signed-in user isn't an admin
+ *  (the underlying RLS policy simply returns no rows in that case). */
+export async function getAnalyticsSummary(): Promise<AnalyticsSummary | null> {
+  const supabase = await getSupabaseServerClient();
+  if (!supabase) return null;
+
+  type AnalyticsRow = Pick<
+    Database["public"]["Tables"]["analytics_events"]["Row"],
+    "event_type" | "game_date" | "status" | "score"
+  >;
+
+  const { data: events } = await supabase
+    .from("analytics_events")
+    .select<"event_type, game_date, status, score", AnalyticsRow>("event_type, game_date, status, score")
+    .order("created_at", { ascending: false })
+    .limit(5000);
+
+  if (!events) return null;
+
+  const started = events.filter((e) => e.event_type === "daily_started");
+  const completed = events.filter((e) => e.event_type === "daily_completed");
+  const won = completed.filter((e) => e.status === "won");
+  const scores = completed.map((e) => e.score).filter((s): s is number => typeof s === "number");
+  const averageScore = scores.length > 0 ? Math.round(scores.reduce((a, b) => a + b, 0) / scores.length) : 0;
+
+  const days = new Set(events.map((e) => e.game_date).filter(Boolean));
+
+  const byDay = new Map<string, { completions: number; scoreSum: number }>();
+  for (const e of completed) {
+    if (!e.game_date) continue;
+    const entry = byDay.get(e.game_date) ?? { completions: 0, scoreSum: 0 };
+    entry.completions += 1;
+    entry.scoreSum += e.score ?? 0;
+    byDay.set(e.game_date, entry);
+  }
+  const recentDays = Array.from(byDay.entries())
+    .sort((a, b) => b[0].localeCompare(a[0]))
+    .slice(0, 14)
+    .map(([gameDate, { completions, scoreSum }]) => ({
+      gameDate,
+      completions,
+      averageScore: completions > 0 ? Math.round(scoreSum / completions) : 0
+    }));
+
+  return {
+    totalDailyCompleted: completed.length,
+    totalDailyStarted: started.length,
+    completionRate: started.length > 0 ? Math.round((completed.length / started.length) * 100) : 0,
+    averageScore,
+    winRate: completed.length > 0 ? Math.round((won.length / completed.length) * 100) : 0,
+    uniqueDaysWithActivity: days.size,
+    recentDays
+  };
+}
+
 export async function isCurrentUserAdmin(): Promise<boolean> {
   const supabase = await getSupabaseServerClient();
   if (!supabase) return false;

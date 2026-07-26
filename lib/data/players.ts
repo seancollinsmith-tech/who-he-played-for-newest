@@ -667,6 +667,158 @@ export const players: Player[] = [
     careerStops: [
       { id: "dirk-nowitzki-1", teamId: "dal", franchiseId: "mavericks-franchise", teamNameUsed: "Dallas Mavericks", firstSeason: "1998", lastSeason: "2019", sequenceNumber: 1, gamesPlayed: 1522, answerEligible: true }
     ]
+  },
+  {
+    id: "russell-westbrook",
+    fullName: "Russell Westbrook",
+    slug: "russell-westbrook",
+    careerStart: 2008,
+    careerEnd: 2026,
+    careerYearsLabel: "2008-present",
+    difficulty: "hard",
+    activeStatus: true,
+    verificationStatus: "verified",
+    hints: ["He was the fourth overall pick in 2008, the same week his team relocated cities.", "He won NBA MVP in 2017 after averaging a triple-double for the season.", "He signed with a seventh different franchise in the summer of 2025."],
+    lastVerifiedAt: "2026-07-26",
+    sourceNotes: "Cross-checked against Wikipedia's career-history infobox (sourced from Basketball-Reference), Britannica, and StatMuse.",
+    careerStops: [
+      { id: "russell-westbrook-1", teamId: "okc", franchiseId: "sonics-franchise", teamNameUsed: "Seattle SuperSonics", firstSeason: "2008", lastSeason: "2008", sequenceNumber: 1, gamesPlayed: 2, answerEligible: true },
+      { id: "russell-westbrook-2", teamId: "okc", franchiseId: "sonics-franchise", teamNameUsed: "Oklahoma City Thunder", firstSeason: "2008", lastSeason: "2019", sequenceNumber: 2, gamesPlayed: 720, answerEligible: true, verificationNotes: "Franchise relocated from Seattle to Oklahoma City in 2008, days after he was drafted; same lineage as the prior stop." },
+      { id: "russell-westbrook-3", teamId: "hou", franchiseId: "rockets-franchise", teamNameUsed: "Houston Rockets", firstSeason: "2019", lastSeason: "2020", sequenceNumber: 3, gamesPlayed: 57, answerEligible: true },
+      { id: "russell-westbrook-4", teamId: "was", franchiseId: "wizards-franchise", teamNameUsed: "Washington Wizards", firstSeason: "2020", lastSeason: "2021", sequenceNumber: 4, gamesPlayed: 65, answerEligible: true },
+      { id: "russell-westbrook-5", teamId: "lal", franchiseId: "lakers-franchise", teamNameUsed: "Los Angeles Lakers", firstSeason: "2021", lastSeason: "2023", sequenceNumber: 5, gamesPlayed: 175, answerEligible: true },
+      { id: "russell-westbrook-6", teamId: "lac", franchiseId: "clippers-franchise", teamNameUsed: "Los Angeles Clippers", firstSeason: "2023", lastSeason: "2024", sequenceNumber: 6, gamesPlayed: 68, answerEligible: true },
+      { id: "russell-westbrook-7", teamId: "den", franchiseId: "nuggets-franchise", teamNameUsed: "Denver Nuggets", firstSeason: "2024", lastSeason: "2025", sequenceNumber: 7, gamesPlayed: 72, answerEligible: true },
+      { id: "russell-westbrook-8", teamId: "sac", franchiseId: "kings-franchise", teamNameUsed: "Sacramento Kings", firstSeason: "2025", lastSeason: "2026", sequenceNumber: 8, gamesPlayed: 20, answerEligible: true }
+    ]
+  },
+  {
+    id: "james-harden",
+    fullName: "James Harden",
+    slug: "james-harden",
+    careerStart: 2009,
+    careerEnd: 2026,
+    careerYearsLabel: "2009-present",
+    difficulty: "medium",
+    activeStatus: true,
+    verificationStatus: "verified",
+    hints: ["He was the third overall pick in 2009 and won Sixth Man of the Year with that team.", "He won NBA MVP in 2018 while leading the league in scoring with the Rockets.", "He signed with a sixth franchise in 2026 after a long run with the Clippers."],
+    lastVerifiedAt: "2026-07-26",
+    sourceNotes: "Cross-checked against Wikipedia's career-history infobox (sourced from Basketball-Reference), Britannica, and StatMuse.",
+    careerStops: [
+      { id: "james-harden-1", teamId: "okc", franchiseId: "sonics-franchise", teamNameUsed: "Oklahoma City Thunder", firstSeason: "2009", lastSeason: "2012", sequenceNumber: 1, gamesPlayed: 220, answerEligible: true },
+      { id: "james-harden-2", teamId: "hou", franchiseId: "rockets-franchise", teamNameUsed: "Houston Rockets", firstSeason: "2012", lastSeason: "2021", sequenceNumber: 2, gamesPlayed: 631, answerEligible: true },
+      { id: "james-harden-3", teamId: "bkn", franchiseId: "nets-franchise", teamNameUsed: "Brooklyn Nets", firstSeason: "2021", lastSeason: "2022", sequenceNumber: 3, gamesPlayed: 65, answerEligible: true },
+      { id: "james-harden-4", teamId: "phi", franchiseId: "sixers-franchise", teamNameUsed: "Philadelphia 76ers", firstSeason: "2022", lastSeason: "2023", sequenceNumber: 4, gamesPlayed: 96, answerEligible: true },
+      { id: "james-harden-5", teamId: "lac", franchiseId: "clippers-franchise", teamNameUsed: "Los Angeles Clippers", firstSeason: "2023", lastSeason: "2026", sequenceNumber: 5, gamesPlayed: 195, answerEligible: true },
+      { id: "james-harden-6", teamId: "cle", franchiseId: "cavaliers-franchise", teamNameUsed: "Cleveland Cavaliers", firstSeason: "2026", lastSeason: "2026", sequenceNumber: 6, gamesPlayed: 5, answerEligible: true, verificationNotes: "Just signed as of publication - figures are placeholders pending games played." }
+    ]
+  },
+  {
+    id: "kyrie-irving",
+    fullName: "Kyrie Irving",
+    slug: "kyrie-irving",
+    careerStart: 2011,
+    careerEnd: 2026,
+    careerYearsLabel: "2011-present",
+    difficulty: "easy",
+    activeStatus: true,
+    verificationStatus: "verified",
+    hints: ["He was the first overall pick in 2011, born in Melbourne, Australia.", "He hit the championship-winning three-pointer in Game 7 of the 2016 Finals.", "He's now the starting point guard in Dallas."],
+    lastVerifiedAt: "2026-07-26",
+    sourceNotes: "Cross-checked against Wikipedia's career-history infobox (sourced from Basketball-Reference) and Britannica.",
+    careerStops: [
+      { id: "kyrie-irving-1", teamId: "cle", franchiseId: "cavaliers-franchise", teamNameUsed: "Cleveland Cavaliers", firstSeason: "2011", lastSeason: "2017", sequenceNumber: 1, gamesPlayed: 372, answerEligible: true, verificationNotes: "2016 NBA championship season." },
+      { id: "kyrie-irving-2", teamId: "bos", franchiseId: "celtics-franchise", teamNameUsed: "Boston Celtics", firstSeason: "2017", lastSeason: "2019", sequenceNumber: 2, gamesPlayed: 103, answerEligible: true },
+      { id: "kyrie-irving-3", teamId: "bkn", franchiseId: "nets-franchise", teamNameUsed: "Brooklyn Nets", firstSeason: "2019", lastSeason: "2023", sequenceNumber: 3, gamesPlayed: 143, answerEligible: true },
+      { id: "kyrie-irving-4", teamId: "dal", franchiseId: "mavericks-franchise", teamNameUsed: "Dallas Mavericks", firstSeason: "2023", lastSeason: "2026", sequenceNumber: 4, gamesPlayed: 165, answerEligible: true }
+    ]
+  },
+  {
+    id: "paul-george",
+    fullName: "Paul George",
+    slug: "paul-george",
+    careerStart: 2010,
+    careerEnd: 2026,
+    careerYearsLabel: "2010-present",
+    difficulty: "medium",
+    activeStatus: true,
+    verificationStatus: "verified",
+    hints: ["He was the tenth overall pick in 2010, nicknamed 'PG-13'.", "He suffered a gruesome leg injury in a 2014 Team USA exhibition game, then came back stronger.", "He signed a max contract with the 76ers in the summer of 2024."],
+    lastVerifiedAt: "2026-07-26",
+    sourceNotes: "Cross-checked against Wikipedia's career-history infobox (sourced from Basketball-Reference), Britannica, and StatMuse.",
+    careerStops: [
+      { id: "paul-george-1", teamId: "ind", franchiseId: "pacers-franchise", teamNameUsed: "Indiana Pacers", firstSeason: "2010", lastSeason: "2017", sequenceNumber: 1, gamesPlayed: 497, answerEligible: true },
+      { id: "paul-george-2", teamId: "okc", franchiseId: "sonics-franchise", teamNameUsed: "Oklahoma City Thunder", firstSeason: "2017", lastSeason: "2019", sequenceNumber: 2, gamesPlayed: 139, answerEligible: true },
+      { id: "paul-george-3", teamId: "lac", franchiseId: "clippers-franchise", teamNameUsed: "Los Angeles Clippers", firstSeason: "2019", lastSeason: "2024", sequenceNumber: 3, gamesPlayed: 270, answerEligible: true },
+      { id: "paul-george-4", teamId: "phi", franchiseId: "sixers-franchise", teamNameUsed: "Philadelphia 76ers", firstSeason: "2024", lastSeason: "2026", sequenceNumber: 4, gamesPlayed: 90, answerEligible: true }
+    ]
+  },
+  {
+    id: "blake-griffin",
+    fullName: "Blake Griffin",
+    slug: "blake-griffin",
+    careerStart: 2009,
+    careerEnd: 2023,
+    careerYearsLabel: "2009-2023",
+    difficulty: "medium",
+    activeStatus: false,
+    verificationStatus: "verified",
+    hints: ["He was the first overall pick in 2009, but a knee injury cost him his rookie season.", "He won the 2011 Slam Dunk Contest and Rookie of the Year in the same year.", "He finished his career with a single season in Boston."],
+    lastVerifiedAt: "2026-07-26",
+    sourceNotes: "Cross-checked against Wikipedia's career-history infobox (sourced from Basketball-Reference) and StatMuse.",
+    careerStops: [
+      { id: "blake-griffin-1", teamId: "lac", franchiseId: "clippers-franchise", teamNameUsed: "Los Angeles Clippers", firstSeason: "2009", lastSeason: "2018", sequenceNumber: 1, gamesPlayed: 576, answerEligible: true },
+      { id: "blake-griffin-2", teamId: "det", franchiseId: "pistons-franchise", teamNameUsed: "Detroit Pistons", firstSeason: "2018", lastSeason: "2021", sequenceNumber: 2, gamesPlayed: 143, answerEligible: true },
+      { id: "blake-griffin-3", teamId: "bkn", franchiseId: "nets-franchise", teamNameUsed: "Brooklyn Nets", firstSeason: "2021", lastSeason: "2022", sequenceNumber: 3, gamesPlayed: 39, answerEligible: true },
+      { id: "blake-griffin-4", teamId: "bos", franchiseId: "celtics-franchise", teamNameUsed: "Boston Celtics", firstSeason: "2022", lastSeason: "2023", sequenceNumber: 4, gamesPlayed: 25, answerEligible: true }
+    ]
+  },
+  {
+    id: "derrick-rose",
+    fullName: "Derrick Rose",
+    slug: "derrick-rose",
+    careerStart: 2008,
+    careerEnd: 2024,
+    careerYearsLabel: "2008-2024",
+    difficulty: "hard",
+    activeStatus: false,
+    verificationStatus: "verified",
+    hints: ["He was the first overall pick in 2008, his hometown team.", "He became the youngest MVP in NBA history in 2011, at age 22.", "He finished his career with a single season in Memphis."],
+    lastVerifiedAt: "2026-07-26",
+    sourceNotes: "Cross-checked against Wikipedia's career-history infobox (sourced from Basketball-Reference), Britannica, and StatMuse.",
+    careerStops: [
+      { id: "derrick-rose-1", teamId: "chi", franchiseId: "bulls-franchise", teamNameUsed: "Chicago Bulls", firstSeason: "2008", lastSeason: "2016", sequenceNumber: 1, gamesPlayed: 425, answerEligible: true },
+      { id: "derrick-rose-2", teamId: "nyk", franchiseId: "knicks-franchise", teamNameUsed: "New York Knicks", firstSeason: "2016", lastSeason: "2017", sequenceNumber: 2, gamesPlayed: 64, answerEligible: true },
+      { id: "derrick-rose-3", teamId: "cle", franchiseId: "cavaliers-franchise", teamNameUsed: "Cleveland Cavaliers", firstSeason: "2017", lastSeason: "2018", sequenceNumber: 3, gamesPlayed: 16, answerEligible: true },
+      { id: "derrick-rose-4", teamId: "min", franchiseId: "timberwolves-franchise", teamNameUsed: "Minnesota Timberwolves", firstSeason: "2018", lastSeason: "2019", sequenceNumber: 4, gamesPlayed: 51, answerEligible: true },
+      { id: "derrick-rose-5", teamId: "det", franchiseId: "pistons-franchise", teamNameUsed: "Detroit Pistons", firstSeason: "2019", lastSeason: "2021", sequenceNumber: 5, gamesPlayed: 84, answerEligible: true },
+      { id: "derrick-rose-6", teamId: "nyk", franchiseId: "knicks-franchise", teamNameUsed: "New York Knicks", firstSeason: "2021", lastSeason: "2023", sequenceNumber: 6, gamesPlayed: 105, answerEligible: true, verificationNotes: "Second stint, same franchise." },
+      { id: "derrick-rose-7", teamId: "mem", franchiseId: "grizzlies-franchise", teamNameUsed: "Memphis Grizzlies", firstSeason: "2023", lastSeason: "2024", sequenceNumber: 7, gamesPlayed: 15, answerEligible: true }
+    ]
+  },
+  {
+    id: "demarcus-cousins",
+    fullName: "DeMarcus Cousins",
+    slug: "demarcus-cousins",
+    careerStart: 2010,
+    careerEnd: 2022,
+    careerYearsLabel: "2010-2022",
+    difficulty: "hard",
+    activeStatus: false,
+    verificationStatus: "verified",
+    hints: ["He was the fifth overall pick in 2010, nicknamed 'Boogie'.", "He made four straight All-Star teams with the Kings from 2015-2018.", "He's played for seven different NBA franchises, several for less than a full season."],
+    lastVerifiedAt: "2026-07-26",
+    sourceNotes: "Cross-checked against Wikipedia's career-history infobox (sourced from Basketball-Reference) and StatMuse. Several short overseas/minor-league stints (Puerto Rico, Taiwan, Mongolia) after 2022 are excluded as non-NBA.",
+    careerStops: [
+      { id: "demarcus-cousins-1", teamId: "sac", franchiseId: "kings-franchise", teamNameUsed: "Sacramento Kings", firstSeason: "2010", lastSeason: "2017", sequenceNumber: 1, gamesPlayed: 507, answerEligible: true },
+      { id: "demarcus-cousins-2", teamId: "nop", franchiseId: "pelicans-franchise", teamNameUsed: "New Orleans Pelicans", firstSeason: "2017", lastSeason: "2018", sequenceNumber: 2, gamesPlayed: 48, answerEligible: true },
+      { id: "demarcus-cousins-3", teamId: "gsw", franchiseId: "warriors-franchise", teamNameUsed: "Golden State Warriors", firstSeason: "2018", lastSeason: "2019", sequenceNumber: 3, gamesPlayed: 30, answerEligible: true },
+      { id: "demarcus-cousins-4", teamId: "hou", franchiseId: "rockets-franchise", teamNameUsed: "Houston Rockets", firstSeason: "2020", lastSeason: "2021", sequenceNumber: 4, gamesPlayed: 25, answerEligible: true },
+      { id: "demarcus-cousins-5", teamId: "lac", franchiseId: "clippers-franchise", teamNameUsed: "Los Angeles Clippers", firstSeason: "2021", lastSeason: "2021", sequenceNumber: 5, gamesPlayed: 6, answerEligible: true },
+      { id: "demarcus-cousins-6", teamId: "mil", franchiseId: "bucks-franchise", teamNameUsed: "Milwaukee Bucks", firstSeason: "2021", lastSeason: "2022", sequenceNumber: 6, gamesPlayed: 19, answerEligible: true },
+      { id: "demarcus-cousins-7", teamId: "den", franchiseId: "nuggets-franchise", teamNameUsed: "Denver Nuggets", firstSeason: "2022", lastSeason: "2022", sequenceNumber: 7, gamesPlayed: 7, answerEligible: true }
+    ]
   }
 ];
 

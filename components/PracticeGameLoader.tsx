@@ -5,6 +5,7 @@ import { Header } from "@/components/Header";
 import { GameBoard } from "@/components/GameBoard";
 import { Puzzle, EMPTY_STATS, StatsRecord } from "@/lib/types";
 import { loadStats } from "@/lib/storage/stats";
+import { trackEvent } from "@/lib/analytics/track";
 
 export function PracticeGameLoader({ puzzle }: { puzzle: Puzzle }) {
   const [stats, setStats] = useState<StatsRecord>(EMPTY_STATS);
@@ -24,6 +25,17 @@ export function PracticeGameLoader({ puzzle }: { puzzle: Puzzle }) {
         streak={stats.currentStreak}
         stats={stats}
         onPracticeAgain={() => setAttempt((n) => n + 1)}
+        onComplete={(final) =>
+          trackEvent({
+            eventType: "practice_completed",
+            playerId: final.playerId,
+            mode: "practice",
+            status: final.status === "won" ? "won" : "lost",
+            score: final.score,
+            hintsUsed: final.hintsUsed,
+            wrongCount: final.wrongTeamIds.length
+          })
+        }
       />
       <footer className="py-6 text-center">
         <p className="mono text-xs uppercase tracking-[0.18em] text-[#c7c6e0]/55">

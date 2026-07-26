@@ -412,3 +412,104 @@ values
   ('596669cd-80dc-0d2c-c209-a445765912bc', 'sas', 'spurs-franchise', 'San Antonio Spurs', '1997', '2016', 1, 1392, true, null),
   ('ba9eb30b-bbff-9168-2b1f-fa9ac11bd1d7', 'dal', 'mavericks-franchise', 'Dallas Mavericks', '1998', '2019', 1, 1522, true, null)
 on conflict do nothing;
+
+-- Batch 2: additional verified players (auto-generated)
+
+insert into players
+  (id, full_name, slug, career_start, career_end, career_years_label, difficulty,
+   active_status, verification_status, hints, source_notes, last_verified_at)
+values
+  ('23bf8e08-1766-02c2-e8f4-748bbc5bcb1e', 'Russell Westbrook', 'russell-westbrook', 2008, 2026, '2008-present', 'hard',
+   true, 'verified',
+   array['He was the fourth overall pick in 2008, the same week his team relocated cities.',
+     'He won NBA MVP in 2017 after averaging a triple-double for the season.',
+     'He signed with a seventh different franchise in the summer of 2025.'],
+   'Cross-checked against Wikipedia''s career-history infobox (sourced from Basketball-Reference), Britannica, and StatMuse.', '2026-07-26'),
+
+  ('840d63c9-81eb-ce34-6983-487239889807', 'James Harden', 'james-harden', 2009, 2026, '2009-present', 'medium',
+   true, 'verified',
+   array['He was the third overall pick in 2009 and won Sixth Man of the Year with that team.',
+     'He won NBA MVP in 2018 while leading the league in scoring with the Rockets.',
+     'He signed with a sixth franchise in 2026 after a long run with the Clippers.'],
+   'Cross-checked against Wikipedia''s career-history infobox (sourced from Basketball-Reference), Britannica, and StatMuse.', '2026-07-26'),
+
+  ('d0ba41f7-e280-6640-9a9e-31e5589fba5d', 'Kyrie Irving', 'kyrie-irving', 2011, 2026, '2011-present', 'easy',
+   true, 'verified',
+   array['He was the first overall pick in 2011, born in Melbourne, Australia.',
+     'He hit the championship-winning three-pointer in Game 7 of the 2016 Finals.',
+     'He''s now the starting point guard in Dallas.'],
+   'Cross-checked against Wikipedia''s career-history infobox (sourced from Basketball-Reference) and Britannica.', '2026-07-26'),
+
+  ('10b5180f-3f0f-a0e3-92f6-cdb897559c0b', 'Paul George', 'paul-george', 2010, 2026, '2010-present', 'medium',
+   true, 'verified',
+   array['He was the tenth overall pick in 2010, nicknamed ''PG-13''.',
+     'He suffered a gruesome leg injury in a 2014 Team USA exhibition game, then came back stronger.',
+     'He signed a max contract with the 76ers in the summer of 2024.'],
+   'Cross-checked against Wikipedia''s career-history infobox (sourced from Basketball-Reference), Britannica, and StatMuse.', '2026-07-26'),
+
+  ('579789e4-25d3-38b1-ba0b-7ab9f972fa64', 'Blake Griffin', 'blake-griffin', 2009, 2023, '2009-2023', 'medium',
+   false, 'verified',
+   array['He was the first overall pick in 2009, but a knee injury cost him his rookie season.',
+     'He won the 2011 Slam Dunk Contest and Rookie of the Year in the same year.',
+     'He finished his career with a single season in Boston.'],
+   'Cross-checked against Wikipedia''s career-history infobox (sourced from Basketball-Reference) and StatMuse.', '2026-07-26'),
+
+  ('ebde3d36-d69d-39f2-ab0e-636706f541fc', 'Derrick Rose', 'derrick-rose', 2008, 2024, '2008-2024', 'hard',
+   false, 'verified',
+   array['He was the first overall pick in 2008, his hometown team.',
+     'He became the youngest MVP in NBA history in 2011, at age 22.',
+     'He finished his career with a single season in Memphis.'],
+   'Cross-checked against Wikipedia''s career-history infobox (sourced from Basketball-Reference), Britannica, and StatMuse.', '2026-07-26'),
+
+  ('daf5dee5-aea5-3789-4114-dbe5035513b2', 'DeMarcus Cousins', 'demarcus-cousins', 2010, 2022, '2010-2022', 'hard',
+   false, 'verified',
+   array['He was the fifth overall pick in 2010, nicknamed ''Boogie''.',
+     'He made four straight All-Star teams with the Kings from 2015-2018.',
+     'He''s played for seven different NBA franchises, several for less than a full season.'],
+   'Cross-checked against Wikipedia''s career-history infobox (sourced from Basketball-Reference) and StatMuse. Several short overseas/minor-league stints (Puerto Rico, Taiwan, Mongolia) after 2022 are excluded as non-NBA.', '2026-07-26')
+on conflict (id) do nothing;
+
+insert into player_team_history
+  (player_id, team_id, franchise_id, team_name_used, first_season, last_season, sequence_number, games_played, answer_eligible, verification_notes)
+values
+  ('23bf8e08-1766-02c2-e8f4-748bbc5bcb1e', 'okc', 'sonics-franchise', 'Seattle SuperSonics', '2008', '2008', 1, 2, true, null),
+  ('23bf8e08-1766-02c2-e8f4-748bbc5bcb1e', 'okc', 'sonics-franchise', 'Oklahoma City Thunder', '2008', '2019', 2, 720, true, 'Franchise relocated from Seattle to Oklahoma City in 2008, days after he was drafted; same lineage as the prior stop.'),
+  ('23bf8e08-1766-02c2-e8f4-748bbc5bcb1e', 'hou', 'rockets-franchise', 'Houston Rockets', '2019', '2020', 3, 57, true, null),
+  ('23bf8e08-1766-02c2-e8f4-748bbc5bcb1e', 'was', 'wizards-franchise', 'Washington Wizards', '2020', '2021', 4, 65, true, null),
+  ('23bf8e08-1766-02c2-e8f4-748bbc5bcb1e', 'lal', 'lakers-franchise', 'Los Angeles Lakers', '2021', '2023', 5, 175, true, null),
+  ('23bf8e08-1766-02c2-e8f4-748bbc5bcb1e', 'lac', 'clippers-franchise', 'Los Angeles Clippers', '2023', '2024', 6, 68, true, null),
+  ('23bf8e08-1766-02c2-e8f4-748bbc5bcb1e', 'den', 'nuggets-franchise', 'Denver Nuggets', '2024', '2025', 7, 72, true, null),
+  ('23bf8e08-1766-02c2-e8f4-748bbc5bcb1e', 'sac', 'kings-franchise', 'Sacramento Kings', '2025', '2026', 8, 20, true, null),
+  ('840d63c9-81eb-ce34-6983-487239889807', 'okc', 'sonics-franchise', 'Oklahoma City Thunder', '2009', '2012', 1, 220, true, null),
+  ('840d63c9-81eb-ce34-6983-487239889807', 'hou', 'rockets-franchise', 'Houston Rockets', '2012', '2021', 2, 631, true, null),
+  ('840d63c9-81eb-ce34-6983-487239889807', 'bkn', 'nets-franchise', 'Brooklyn Nets', '2021', '2022', 3, 65, true, null),
+  ('840d63c9-81eb-ce34-6983-487239889807', 'phi', 'sixers-franchise', 'Philadelphia 76ers', '2022', '2023', 4, 96, true, null),
+  ('840d63c9-81eb-ce34-6983-487239889807', 'lac', 'clippers-franchise', 'Los Angeles Clippers', '2023', '2026', 5, 195, true, null),
+  ('840d63c9-81eb-ce34-6983-487239889807', 'cle', 'cavaliers-franchise', 'Cleveland Cavaliers', '2026', '2026', 6, 5, true, 'Just signed as of publication - figures are placeholders pending games played.'),
+  ('d0ba41f7-e280-6640-9a9e-31e5589fba5d', 'cle', 'cavaliers-franchise', 'Cleveland Cavaliers', '2011', '2017', 1, 372, true, '2016 NBA championship season.'),
+  ('d0ba41f7-e280-6640-9a9e-31e5589fba5d', 'bos', 'celtics-franchise', 'Boston Celtics', '2017', '2019', 2, 103, true, null),
+  ('d0ba41f7-e280-6640-9a9e-31e5589fba5d', 'bkn', 'nets-franchise', 'Brooklyn Nets', '2019', '2023', 3, 143, true, null),
+  ('d0ba41f7-e280-6640-9a9e-31e5589fba5d', 'dal', 'mavericks-franchise', 'Dallas Mavericks', '2023', '2026', 4, 165, true, null),
+  ('10b5180f-3f0f-a0e3-92f6-cdb897559c0b', 'ind', 'pacers-franchise', 'Indiana Pacers', '2010', '2017', 1, 497, true, null),
+  ('10b5180f-3f0f-a0e3-92f6-cdb897559c0b', 'okc', 'sonics-franchise', 'Oklahoma City Thunder', '2017', '2019', 2, 139, true, null),
+  ('10b5180f-3f0f-a0e3-92f6-cdb897559c0b', 'lac', 'clippers-franchise', 'Los Angeles Clippers', '2019', '2024', 3, 270, true, null),
+  ('10b5180f-3f0f-a0e3-92f6-cdb897559c0b', 'phi', 'sixers-franchise', 'Philadelphia 76ers', '2024', '2026', 4, 90, true, null),
+  ('579789e4-25d3-38b1-ba0b-7ab9f972fa64', 'lac', 'clippers-franchise', 'Los Angeles Clippers', '2009', '2018', 1, 576, true, null),
+  ('579789e4-25d3-38b1-ba0b-7ab9f972fa64', 'det', 'pistons-franchise', 'Detroit Pistons', '2018', '2021', 2, 143, true, null),
+  ('579789e4-25d3-38b1-ba0b-7ab9f972fa64', 'bkn', 'nets-franchise', 'Brooklyn Nets', '2021', '2022', 3, 39, true, null),
+  ('579789e4-25d3-38b1-ba0b-7ab9f972fa64', 'bos', 'celtics-franchise', 'Boston Celtics', '2022', '2023', 4, 25, true, null),
+  ('ebde3d36-d69d-39f2-ab0e-636706f541fc', 'chi', 'bulls-franchise', 'Chicago Bulls', '2008', '2016', 1, 425, true, null),
+  ('ebde3d36-d69d-39f2-ab0e-636706f541fc', 'nyk', 'knicks-franchise', 'New York Knicks', '2016', '2017', 2, 64, true, null),
+  ('ebde3d36-d69d-39f2-ab0e-636706f541fc', 'cle', 'cavaliers-franchise', 'Cleveland Cavaliers', '2017', '2018', 3, 16, true, null),
+  ('ebde3d36-d69d-39f2-ab0e-636706f541fc', 'min', 'timberwolves-franchise', 'Minnesota Timberwolves', '2018', '2019', 4, 51, true, null),
+  ('ebde3d36-d69d-39f2-ab0e-636706f541fc', 'det', 'pistons-franchise', 'Detroit Pistons', '2019', '2021', 5, 84, true, null),
+  ('ebde3d36-d69d-39f2-ab0e-636706f541fc', 'nyk', 'knicks-franchise', 'New York Knicks', '2021', '2023', 6, 105, true, 'Second stint, same franchise.'),
+  ('ebde3d36-d69d-39f2-ab0e-636706f541fc', 'mem', 'grizzlies-franchise', 'Memphis Grizzlies', '2023', '2024', 7, 15, true, null),
+  ('daf5dee5-aea5-3789-4114-dbe5035513b2', 'sac', 'kings-franchise', 'Sacramento Kings', '2010', '2017', 1, 507, true, null),
+  ('daf5dee5-aea5-3789-4114-dbe5035513b2', 'nop', 'pelicans-franchise', 'New Orleans Pelicans', '2017', '2018', 2, 48, true, null),
+  ('daf5dee5-aea5-3789-4114-dbe5035513b2', 'gsw', 'warriors-franchise', 'Golden State Warriors', '2018', '2019', 3, 30, true, null),
+  ('daf5dee5-aea5-3789-4114-dbe5035513b2', 'hou', 'rockets-franchise', 'Houston Rockets', '2020', '2021', 4, 25, true, null),
+  ('daf5dee5-aea5-3789-4114-dbe5035513b2', 'lac', 'clippers-franchise', 'Los Angeles Clippers', '2021', '2021', 5, 6, true, null),
+  ('daf5dee5-aea5-3789-4114-dbe5035513b2', 'mil', 'bucks-franchise', 'Milwaukee Bucks', '2021', '2022', 6, 19, true, null),
+  ('daf5dee5-aea5-3789-4114-dbe5035513b2', 'den', 'nuggets-franchise', 'Denver Nuggets', '2022', '2022', 7, 7, true, null)
+on conflict do nothing;

@@ -25,8 +25,10 @@ export default function PracticeIndexPage() {
             Practice Mode
           </h1>
           <p className="mt-2 max-w-xl text-sm leading-6 text-[#c7c6e0]/75">
-            Play any verified puzzle as many times as you like. Practice
-            results never affect your daily streak.
+            Jump straight to any verified puzzle, in any order — great for
+            warming up or trying a specific difficulty. Results here never
+            affect your daily streak. Looking for a specific past day
+            instead? Check the <Link href="/archive" className="underline decoration-[#f0197c] underline-offset-2">Archive</Link>.
           </p>
 
           <div className="mt-6 grid gap-3 sm:grid-cols-2">

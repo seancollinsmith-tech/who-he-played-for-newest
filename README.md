@@ -33,15 +33,27 @@ npm run build
 - **Daily Game** (`/`) — one puzzle per calendar day, same for everyone,
   persists across refreshes, can't be replayed for a new score once
   completed.
-- **Practice Mode** (`/practice`) — unlimited replays of any verified
-  puzzle, doesn't touch your daily streak.
-- **Archive** (`/archive`) — browse and replay past/available puzzles.
+- **Practice Mode** (`/practice`) — jump straight into any verified puzzle,
+  in any order, for warming up or picking a specific difficulty. Doesn't
+  touch your daily streak.
+- **Archive** (`/archive`) — a chronological log of every past daily game,
+  by date and game number, showing whether you completed each one and your
+  score. This is specifically for catching up on days you missed — Practice
+  Mode is for playing anything, anytime, in no particular order.
 - **Statistics** (`/statistics`) — streaks, win rate, average score,
   perfect games.
 - **How to Play** (`/how-to-play`) — full rules and scoring reference.
 - **Admin** (`/admin`) — create/edit players, manage career stops, set
-  verification status, and schedule/publish the daily rotation.
+  verification status, schedule/publish the daily rotation, and (with
+  Supabase connected) view aggregate play analytics at `/admin/analytics`.
 - **Sign In** (`/sign-in`) — Supabase email magic-link auth (optional).
+- **Installable as an app** — the site ships a web manifest and a minimal
+  offline-shell service worker (`public/manifest.json`, `public/sw.js`), so
+  it can be added to a phone's home screen like a native app. "Add to Home
+  Screen" (iOS Safari) or the install prompt (Android Chrome) will pick this
+  up automatically once deployed over HTTPS — service workers don't
+  register on plain `http://localhost` in some browsers, but work fine on
+  Vercel's HTTPS domains.
 
 ## Demo mode vs. Supabase mode
 
@@ -63,8 +75,9 @@ The app checks for Supabase environment variables at startup:
 ## Connecting Supabase
 
 1. Create a project at [supabase.com](https://supabase.com).
-2. In the SQL editor, run `supabase/schema.sql`, then optionally
-   `supabase/seed_players.sql` for the three sample puzzles.
+2. In the SQL editor, run `supabase/schema.sql` (this now also creates the
+   `analytics_events` table backing `/admin/analytics`), then optionally
+   `supabase/seed_players.sql` for the 37 sample puzzles.
 3. Copy `.env.example` to `.env.local` and fill in:
 
    ```bash
@@ -82,19 +95,28 @@ The app checks for Supabase environment variables at startup:
    update profiles set is_admin = true where username = 'you@example.com';
    ```
 
+   **Already have a Supabase project from an earlier version of this app?**
+   `schema.sql` is idempotent (every statement is guarded with `if not
+   exists`), so it's safe to re-run the whole file to pick up new additions
+   like the `analytics_events` table — it won't touch or duplicate your
+   existing data.
+
 5. Restart `npm run dev`. The app will now read the published daily puzzle
    from Supabase, falling back to the local rotation only if no puzzle has
    been published for today.
 
 ## Adding and verifying new players
 
-The starting pool ships with **30 verified players** (`lib/data/players.ts`,
+The starting pool ships with **37 verified players** (`lib/data/players.ts`,
 mirrored in `supabase/seed_players.sql`) — a mix of single-franchise legends,
 mid-difficulty stars, and journeyman "hard mode" puzzles with up to 9 unique
 franchises. Every one of them was checked against Wikipedia's career-history
 infobox (itself sourced from Basketball-Reference) plus at least one
 secondary source (ESPN, Britannica, StatMuse, or similar) before being marked
-verified — see each player's `sourceNotes` field for what was checked.
+verified — see each player's `sourceNotes` field for what was checked. At
+one puzzle a day, that's a little over a month before the local demo
+rotation repeats — add more players periodically (same careful research
+process) to keep it fresh longer.
 
 Whether you're using demo mode or Supabase, the shape is the same
 (`lib/types.ts`):
