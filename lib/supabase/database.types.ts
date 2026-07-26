@@ -17,6 +17,7 @@ export interface Database {
           updated_at?: string;
         };
         Update: Partial<Database["public"]["Tables"]["profiles"]["Insert"]>;
+      Relationships: [];
       };
       franchises: {
         Row: {
@@ -30,6 +31,7 @@ export interface Database {
           created_at?: string;
         };
         Update: Partial<Database["public"]["Tables"]["franchises"]["Insert"]>;
+      Relationships: [];
       };
       teams: {
         Row: {
@@ -59,6 +61,7 @@ export interface Database {
           updated_at?: string;
         };
         Update: Partial<Database["public"]["Tables"]["teams"]["Insert"]>;
+      Relationships: [];
       };
       players: {
         Row: {
@@ -96,6 +99,7 @@ export interface Database {
           updated_at?: string;
         };
         Update: Partial<Database["public"]["Tables"]["players"]["Insert"]>;
+      Relationships: [];
       };
       player_team_history: {
         Row: {
@@ -127,6 +131,7 @@ export interface Database {
           created_at?: string;
         };
         Update: Partial<Database["public"]["Tables"]["player_team_history"]["Insert"]>;
+      Relationships: [];
       };
       daily_games: {
         Row: {
@@ -146,6 +151,7 @@ export interface Database {
           created_at?: string;
         };
         Update: Partial<Database["public"]["Tables"]["daily_games"]["Insert"]>;
+      Relationships: [];
       };
       game_results: {
         Row: {
@@ -177,6 +183,7 @@ export interface Database {
           completed_at?: string | null;
         };
         Update: Partial<Database["public"]["Tables"]["game_results"]["Insert"]>;
+      Relationships: [];
       };
       user_statistics: {
         Row: {
@@ -202,7 +209,11 @@ export interface Database {
           updated_at?: string;
         };
         Update: Partial<Database["public"]["Tables"]["user_statistics"]["Insert"]>;
+      Relationships: [];
       };
     };
+    Views: Record<string, never>;
+    Functions: Record<string, never>;
+    Enums: Record<string, never>;
   };
 }

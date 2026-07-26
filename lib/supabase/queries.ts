@@ -107,7 +107,7 @@ export async function isCurrentUserAdmin(): Promise<boolean> {
     .from("profiles")
     .select("is_admin")
     .eq("id", user.id)
-    .maybeSingle();
+    .maybeSingle<{ is_admin: boolean }>();
 
   return Boolean(profile?.is_admin);
 }

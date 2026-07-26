@@ -36,7 +36,7 @@ export function AdminGuard({ children }: { children: React.ReactNode }) {
           .from("profiles")
           .select("is_admin")
           .eq("id", user.id)
-          .maybeSingle();
+          .maybeSingle<{ is_admin: boolean }>();
 
         if (active) {
           setAllowed(Boolean(profile?.is_admin));
