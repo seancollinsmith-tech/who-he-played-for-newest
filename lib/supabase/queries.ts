@@ -53,12 +53,14 @@ export async function getPublishedDailyGame(gameDate: string): Promise<{
   const supabase = await getSupabaseServerClient();
   if (!supabase) return null;
 
+  type DailyGameRow = Database["public"]["Tables"]["daily_games"]["Row"];
+
   const { data: dailyGame } = await supabase
     .from("daily_games")
     .select("*")
     .eq("game_date", gameDate)
     .eq("published", true)
-    .maybeSingle();
+    .maybeSingle<DailyGameRow>();
 
   if (!dailyGame) return null;
 
@@ -66,13 +68,13 @@ export async function getPublishedDailyGame(gameDate: string): Promise<{
     .from("players")
     .select("*")
     .eq("id", dailyGame.player_id)
-    .maybeSingle();
+    .maybeSingle<PlayerRow>();
 
   if (!playerRow) return null;
 
   const { data: historyRows } = await supabase
     .from("player_team_history")
-    .select("*")
+    .select<"*", HistoryRow>("*")
     .eq("player_id", playerRow.id)
     .order("sequence_number", { ascending: true });
 
@@ -86,10 +88,15 @@ export async function listAllPlayers(): Promise<Player[] | null> {
   const supabase = await getSupabaseServerClient();
   if (!supabase) return null;
 
-  const { data: playerRows } = await supabase.from("players").select("*").order("full_name");
+  const { data: playerRows } = await supabase
+    .from("players")
+    .select<"*", PlayerRow>("*")
+    .order("full_name");
   if (!playerRows) return [];
 
-  const { data: historyRows } = await supabase.from("player_team_history").select("*");
+  const { data: historyRows } = await supabase
+    .from("player_team_history")
+    .select<"*", HistoryRow>("*");
 
   return playerRows.map((row) => toPlayer(row, historyRows ?? []));
 }
