@@ -23,7 +23,7 @@ export function PlayerCard({
         </p>
       )}
 
-      <h1 className="display mt-3 text-5xl font-black uppercase leading-none text-[#112f54] sm:text-7xl">
+      <h1 className="display mt-3 break-words text-4xl font-black uppercase leading-none text-[#112f54] sm:text-7xl">
         {puzzle.playerName}
       </h1>
 

@@ -16,7 +16,7 @@ export function Header({ streak }: { streak: number }) {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="relative mb-6 flex items-center justify-between rounded-3xl border-2 border-[#112f54]/15 bg-[#f7efdc]/80 px-4 py-3 backdrop-blur">
+    <header className="relative z-50 mb-6 flex items-center justify-between rounded-3xl border-2 border-[#112f54]/15 bg-[#f7efdc]/80 px-4 py-3 backdrop-blur">
       <button
         aria-label={open ? "Close menu" : "Open menu"}
         aria-expanded={open}

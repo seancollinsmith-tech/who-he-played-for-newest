@@ -110,3 +110,15 @@ html,
 body {
   overflow-x: hidden;
 }
+
+/* Defense-in-depth: no single long word (long player names, team names,
+   etc.) should ever be able to push the layout wider than the viewport */
+h1,
+h2,
+h3,
+p,
+span,
+button {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
