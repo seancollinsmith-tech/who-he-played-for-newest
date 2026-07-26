@@ -88,6 +88,14 @@ The app checks for Supabase environment variables at startup:
 
 ## Adding and verifying new players
 
+The starting pool ships with **30 verified players** (`lib/data/players.ts`,
+mirrored in `supabase/seed_players.sql`) — a mix of single-franchise legends,
+mid-difficulty stars, and journeyman "hard mode" puzzles with up to 9 unique
+franchises. Every one of them was checked against Wikipedia's career-history
+infobox (itself sourced from Basketball-Reference) plus at least one
+secondary source (ESPN, Britannica, StatMuse, or similar) before being marked
+verified — see each player's `sourceNotes` field for what was checked.
+
 Whether you're using demo mode or Supabase, the shape is the same
 (`lib/types.ts`):
 
@@ -124,6 +132,14 @@ see `getPublishedDailyGame` in `lib/supabase/queries.ts`.
 
 ## Changing branding, colors, and rules
 
+- **Logo:** `public/branding/spanner-sports-logo.png` (transparent cutout, used
+  in the header), `public/branding/spanner-sports-logo-black-bg.jpeg` (original,
+  used for social share previews), and `public/branding/favicon-512.png` /
+  `public/favicon.ico` (square version on a navy backdrop, used as the site
+  favicon). To swap the logo, replace these files with new exports at the same
+  paths and sizes — if the new logo isn't already transparent, re-run a
+  chroma-key pass (see git history / ask Claude) rather than dropping a
+  black-background image straight into the header.
 - **Colors & fonts:** CSS variables in `app/globals.css` (`--cream`,
   `--navy`, `--orange`, `--gold`, `--green`, `--red`) and the `display` /
   `mono` font stacks in `tailwind.config.ts`.

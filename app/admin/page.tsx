@@ -5,7 +5,13 @@ import Link from "next/link";
 import { Header } from "@/components/Header";
 import { AdminGuard } from "@/components/admin/AdminGuard";
 import { Player, VerificationStatus } from "@/lib/types";
-import { deleteAdminPlayer, listAdminPlayers, saveAdminPlayer } from "@/lib/storage/adminStore";
+import {
+  deleteAdminPlayer,
+  listAdminPlayers,
+  resetPlayersToDefaults,
+  saveAdminPlayer,
+  syncSeedPlayers
+} from "@/lib/storage/adminStore";
 import { isSupabaseConfigured } from "@/lib/supabase/config";
 
 const STATUS_STYLES: Record<VerificationStatus, string> = {
@@ -17,6 +23,7 @@ const STATUS_STYLES: Record<VerificationStatus, string> = {
 
 export default function AdminDashboardPage() {
   const [players, setPlayers] = useState<Player[]>([]);
+  const [syncMessage, setSyncMessage] = useState("");
   const supabaseMode = isSupabaseConfigured();
 
   useEffect(() => {
@@ -38,6 +45,28 @@ export default function AdminDashboardPage() {
     refresh();
   }
 
+  function handleSync() {
+    const added = syncSeedPlayers();
+    setSyncMessage(
+      added > 0
+        ? `Added ${added} new player${added === 1 ? "" : "s"} from the latest code.`
+        : "Already up to date — no new players to add."
+    );
+    refresh();
+  }
+
+  function handleReset() {
+    if (
+      !confirm(
+        "Reset all players to the shipped defaults? This deletes any custom players or edits made only in this browser."
+      )
+    )
+      return;
+    resetPlayersToDefaults();
+    setSyncMessage("Reset to the shipped default player list.");
+    refresh();
+  }
+
   return (
     <main className="min-h-screen px-4 py-6 sm:px-6">
       <div className="game-shell">
@@ -54,7 +83,23 @@ export default function AdminDashboardPage() {
                   {supabaseMode ? "Connected to Supabase" : "Demo mode — local browser storage"}
                 </p>
               </div>
-              <div className="flex gap-2">
+              <div className="flex flex-wrap gap-2">
+                {!supabaseMode && (
+                  <>
+                    <button
+                      onClick={handleSync}
+                      className="rounded-2xl border-2 border-[#1f7a45] px-4 py-2 text-sm font-black uppercase tracking-wide text-[#1f7a45]"
+                    >
+                      Sync New Players
+                    </button>
+                    <button
+                      onClick={handleReset}
+                      className="rounded-2xl border-2 border-[#bd2c2c]/50 px-4 py-2 text-sm font-black uppercase tracking-wide text-[#bd2c2c]"
+                    >
+                      Reset to Defaults
+                    </button>
+                  </>
+                )}
                 <Link
                   href="/admin/schedule"
                   className="rounded-2xl border-2 border-[#112f54] px-4 py-2 text-sm font-black uppercase tracking-wide text-[#112f54]"
@@ -70,11 +115,22 @@ export default function AdminDashboardPage() {
               </div>
             </div>
 
+            {syncMessage && (
+              <p className="mt-4 rounded-2xl bg-[#1f7a45]/10 p-3 text-sm font-bold text-[#1f7a45]" role="status">
+                {syncMessage}
+              </p>
+            )}
+
             {!supabaseMode && (
               <p className="mt-4 rounded-2xl bg-[#112f54]/5 p-4 text-xs leading-5 text-[#423920]/70">
-                Demo mode stores changes in this browser only. Configure
-                Supabase (see README) to persist data server-side across
-                devices and admins.
+                Demo mode stores changes in this browser only, seeded once
+                from the code the first time you opened this page. If the
+                code ships more players later (like this update did), click{" "}
+                <strong>Sync New Players</strong> above to pull them in
+                without losing any edits you've made — or{" "}
+                <strong>Reset to Defaults</strong> to wipe local edits and
+                start fresh. Configure Supabase (see README) to persist data
+                server-side across devices and admins instead.
               </p>
             )}
 

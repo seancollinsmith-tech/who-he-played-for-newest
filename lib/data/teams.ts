@@ -59,6 +59,7 @@ export const teams: Team[] = [
     secondaryColor: "#BD2C2C",
     displayOrder: 19,
     historicalNames: [
+      { name: "Charlotte Hornets", city: "Charlotte", firstSeason: "1988", lastSeason: "2002" },
       { name: "New Orleans Hornets", city: "New Orleans", firstSeason: "2002", lastSeason: "2013" }
     ]
   },

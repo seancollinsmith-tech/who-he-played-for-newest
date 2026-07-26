@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { Flame, Menu, Trophy, X } from "lucide-react";
+import { Flame, Menu, X } from "lucide-react";
 
 const NAV_LINKS = [
   { href: "/", label: "Daily Game" },
@@ -31,17 +31,15 @@ export function Header({ streak }: { streak: number }) {
         href="/"
         className="flex items-center gap-3 rounded-xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ee5a1f]"
       >
-        <div className="grid h-10 w-10 place-items-center rounded-full bg-[#ee5a1f] text-white">
-          <Trophy size={22} aria-hidden="true" />
-        </div>
-        <div>
-          <p className="display text-xl font-black uppercase leading-none text-[#112f54]">
-            Who He Played For
-          </p>
-          <p className="mono text-[10px] uppercase tracking-[0.26em] text-[#423920]/60">
-            A SpannerSports Game
-          </p>
-        </div>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/branding/spanner-sports-logo.png"
+          alt="SpannerSports"
+          className="h-9 w-auto sm:h-11"
+        />
+        <p className="display text-xl font-black uppercase leading-none text-[#112f54] sm:text-2xl">
+          Who He Played For
+        </p>
       </Link>
 
       <div

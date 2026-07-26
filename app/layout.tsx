@@ -5,7 +5,18 @@ export const metadata: Metadata = {
   title: "Who He Played For | SpannerSports",
   description:
     "A daily NBA career-path guessing game from SpannerSports. Guess every franchise a player appeared for.",
-  applicationName: "Who He Played For"
+  applicationName: "Who He Played For",
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/branding/favicon-512.png", sizes: "512x512", type: "image/png" }
+    ]
+  },
+  openGraph: {
+    title: "Who He Played For | SpannerSports",
+    description: "A daily NBA career-path guessing game from SpannerSports.",
+    images: ["/branding/spanner-sports-logo-black-bg.jpeg"]
+  }
 };
 
 export const viewport: Viewport = {

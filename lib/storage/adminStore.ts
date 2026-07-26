@@ -17,6 +17,31 @@ export function listAdminPlayers(): Player[] {
   return readJSON<Player[]>(PLAYERS_KEY, seedPlayers);
 }
 
+/**
+ * Adds any players from lib/data/players.ts that aren't already in this
+ * browser's stored admin list (matched by id) — e.g. after an update ships
+ * more sample players. Existing players (including any local edits) are
+ * left untouched. Returns how many were added.
+ */
+export function syncSeedPlayers(): number {
+  const current = listAdminPlayers();
+  const existingIds = new Set(current.map((p) => p.id));
+  const missing = seedPlayers.filter((p) => !existingIds.has(p.id));
+  if (missing.length > 0) {
+    writeJSON(PLAYERS_KEY, [...current, ...missing]);
+  }
+  return missing.length;
+}
+
+/**
+ * Wipes all local edits and restores the full default seed list exactly as
+ * shipped in the code. Destructive — any custom players or edits made only
+ * in this browser will be lost.
+ */
+export function resetPlayersToDefaults(): void {
+  writeJSON(PLAYERS_KEY, seedPlayers);
+}
+
 export function getAdminPlayer(id: string): Player | undefined {
   return listAdminPlayers().find((p) => p.id === id);
 }
